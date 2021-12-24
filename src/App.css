@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Special+Elite&display=swap');
+
+
+.appWrapper {
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas:
+          "head"
+          "main"
+;
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 1fr;
+}
+
+.headerPage {
+    grid-area: head;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    justify-content: space-between;
+    border-bottom: 1px solid darkgray;
+    margin-bottom: 20px;
+}
+
+.mainContent {
+    grid-area: main;
+    margin: 0 10px;
+}

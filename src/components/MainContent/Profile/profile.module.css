@@ -1,0 +1,57 @@
+.profileUserInfo {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+    }
+.userInfo {
+    align-self: center;
+    margin-left: 10px;
+}
+.nickname {
+    font-size: 1.6vw;
+    color: #088dcd;
+    text-transform: capitalize
+}
+.signature {
+    font-size: 1vw;
+    color: #404040;
+    word-break: break-word;
+}
+
+.status {
+    display: flex;
+    margin-top: 10px;
+    font-size: 1.2vw;
+}
+
+.status div {
+    padding-right: 10px;
+}
+.status span {
+    font-weight: bold;
+}
+.profilePosts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.video{
+    padding: 10px;
+    width: 21vw;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    height: 90px
+}
+.postItem {
+    position: relative;
+}
+.postItem span {
+    position: absolute;
+    color: white;
+    right: 2vw;
+    top: 2vw;
+    font-size: 1.5vw;
+    padding: 5px;
+}
