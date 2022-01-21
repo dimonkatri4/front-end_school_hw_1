@@ -14,7 +14,7 @@ const UserPosts = function ({ trending }) {
     }
     const [page, setPage] = useState(1);
 
-    const handleChange = (event, value) => {
+    const handleChangePage = (event, value) => {
         setPage(value);
     };
 
@@ -42,7 +42,7 @@ const UserPosts = function ({ trending }) {
             <Pagination
                 count={pageCount}
                 page={page}
-                onChange={handleChange}
+                onChange={handleChangePage}
                 className={style.pagination}
             />
         </div>
