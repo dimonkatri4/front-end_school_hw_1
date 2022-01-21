@@ -28,7 +28,7 @@ const usersReducer = (state = initialState, action) => {
         case TOGGLE_IS_FETCHING:
             return {
                 ...state,
-                isFetching: action.error,
+                isFetching: action.isFetching,
             };
         case SET_REQUEST_ERROR:
             return {

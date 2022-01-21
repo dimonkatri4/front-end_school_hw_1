@@ -14,7 +14,7 @@ jest.mock('../api/api', () => ({
 }));
 
 describe('User reducer', () => {
-    describe('Thunk user-reducer', () => {
+    describe('Thunk requestUsersInfo of user-reducer', () => {
         it('success requestUsersInfo thunk', async () => {
             userAPI.getUserInfo.mockResolvedValue({ data: {} });
             const dispatchMock = jest.fn();
@@ -92,10 +92,17 @@ describe('User reducer', () => {
             expect(newState.userInfo[0].id).toBe(3125);
         });
 
-        // it('isFetching should be set value true', () => {
-        //     const action = toggleIsFetching(true);
-        //     const newState = usersReducer(state, action);
-        //     expect(newState.isFetching).toBe(true);
-        // });
+        it('isFetching should be set value "true"', () => {
+            const action = toggleIsFetching(true);
+            const newState = usersReducer(state, action);
+            expect(newState.isFetching).toBe(true);
+        });
+
+        it('the error should be set in state', () => {
+            const error = new Error('Some error');
+            const action = setRequestError(error);
+            const newState = usersReducer(state, action);
+            expect(newState.requestError).toBe(error);
+        });
     });
 });
