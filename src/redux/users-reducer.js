@@ -67,9 +67,10 @@ export const requestUsersInfo = (id) => async (dispatch) => {
         const data = await userAPI.getUserInfo(id);
         if (!Object.keys(data).length) {
             dispatch(setRequestError('Empty object in userInfo'));
+        } else {
+            dispatch(setUsersInfo(data));
         }
         dispatch(toggleIsFetching(false));
-        dispatch(setUsersInfo(data));
     } catch (error) {
         dispatch(setRequestError(error.response.data.message));
     }

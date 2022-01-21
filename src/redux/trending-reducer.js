@@ -36,7 +36,7 @@ export const requestTrendingFeed = () => async (dispatch) => {
         const data = await trendingAPI.getTrendingFeed();
         if (data.length === 0) {
             dispatch(setError('Empty array trending feed'));
-        } else{
+        } else {
             dispatch(setTrendingFeed(data));
         }
     } catch (err) {
