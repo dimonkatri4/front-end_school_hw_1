@@ -7,15 +7,11 @@ import PropTypes from 'prop-types';
 import style from './trendingFeed.module.css';
 
 const Post = function ({
-    avatar,
-    authorName,
-    nickName,
-    postText,
-    musicName,
-    musicAuthor,
+    authorMeta,
+    text,
+    musicMeta,
     videoUrl,
-    userId,
-    cover,
+    covers,
     shareCount,
     commentCount,
     diggCount,
@@ -47,27 +43,27 @@ const Post = function ({
         <div className={style.post}>
             <div className={style.postInfo}>
                 <div className={style.authorPhoto}>
-                    <Link to={`/profile/${userId}`}>
-                        <Avatar src={avatar} sx={{ width: '5vw', height: '5vw' }} />
+                    <Link to={`/profile/${authorMeta.id}`}>
+                        <Avatar src={authorMeta.avatar} sx={{ width: '5vw', height: '5vw' }} />
                     </Link>
                 </div>
                 <div>
                     <div>
-                        <Link to={`/profile/${userId}`} className={style.authorName}>
-                            <span>{authorName} </span>
+                        <Link to={`/profile/${authorMeta.id}`} className={style.authorName}>
+                            <span>{authorMeta.name} </span>
                         </Link>
-                        <span className={style.authorNickName}>{nickName}</span>
+                        <span className={style.authorNickName}>{authorMeta.nickName}</span>
                     </div>
-                    <div className={style.postText}>{postText}</div>
+                    <div className={style.postText}>{text}</div>
                     <div className={style.musicInfo}>
                         <FontAwesomeIcon icon={faMusic} />
-                        <span> {musicName} - </span>
-                        <span>{musicAuthor}</span>
+                        <span> {musicMeta.musicName} - </span>
+                        <span>{musicMeta.musicAuthor}</span>
                     </div>
                 </div>
             </div>
             <div className={style.video}>
-                <video controls ref={videoRef} poster={cover} loop>
+                <video controls ref={videoRef} poster={covers.default} loop>
                     <source src={videoUrl} />
                     <track kind="captions" />
                 </video>
@@ -88,18 +84,30 @@ const Post = function ({
 };
 
 Post.propTypes = {
-    avatar: PropTypes.string.isRequired,
-    authorName: PropTypes.string.isRequired,
-    nickName: PropTypes.string.isRequired,
-    postText: PropTypes.string.isRequired,
-    musicName: PropTypes.string.isRequired,
-    musicAuthor: PropTypes.string.isRequired,
+    authorMeta: PropTypes.shape({
+        avatar: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        nickName: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+    }),
+    text: PropTypes.string.isRequired,
+    musicMeta: PropTypes.shape({
+        musicName: PropTypes.string.isRequired,
+        musicAuthor: PropTypes.string.isRequired,
+    }),
     videoUrl: PropTypes.string.isRequired,
-    userId: PropTypes.number.isRequired,
-    cover: PropTypes.string.isRequired,
+    covers: PropTypes.shape({
+        default: PropTypes.string.isRequired,
+    }),
     shareCount: PropTypes.number.isRequired,
     commentCount: PropTypes.number.isRequired,
     diggCount: PropTypes.number.isRequired,
+};
+
+Post.defaultProps = {
+    authorMeta: {},
+    musicMeta: {},
+    covers: {},
 };
 
 export default Post;
