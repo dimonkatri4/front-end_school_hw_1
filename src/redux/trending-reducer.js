@@ -1,4 +1,4 @@
-import { trendingAPI } from '../api/api';
+import getTrendingFeed from "../api/getTrendingFeed";
 
 const SET_TRENDING_FEED = '/trending/SET_TRENDING_FEED';
 const SET_ERROR = '/trending/SET_ERROR';
@@ -33,8 +33,8 @@ export const setError = (error) => ({ type: SET_ERROR, error });
 
 export const requestTrendingFeed = () => async (dispatch) => {
     try {
-        const data = await trendingAPI.getTrendingFeed();
-        if (data.length === 0) {
+        const data = await getTrendingFeed();
+        if (data.length === 0 || data === 'something went wrong, please try again') {
             dispatch(setError('Empty array trending feed'));
         } else {
             dispatch(setTrendingFeed(data));

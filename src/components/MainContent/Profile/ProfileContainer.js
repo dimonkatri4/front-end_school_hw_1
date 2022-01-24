@@ -53,7 +53,7 @@ const mapStateToProps = (state) => ({
 ProfileContainer.propTypes = {
     requestUsersInfo: PropTypes.func.isRequired,
     requestTrendingFeed: PropTypes.func.isRequired,
-    profile: PropTypes.array,
+    profile: PropTypes.object,
     isFetching: PropTypes.bool,
     trending: PropTypes.array,
     errorTrend: PropTypes.string,

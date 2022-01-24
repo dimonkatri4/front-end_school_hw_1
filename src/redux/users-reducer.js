@@ -1,5 +1,6 @@
-import { userAPI } from '../api/api';
 import userFeedData from '../json/user-feed.json';
+import getUserInfo from "../api/getUserInfo";
+
 
 const SET_USERS_FEED = '/users/SET_USERS_FEED';
 const SET_USERS_INFO = '/users/SET_USERS_INFO';
@@ -51,7 +52,7 @@ export const setRequestError = (error) => ({ type: SET_REQUEST_ERROR, error });
 // In case the data came from the server correctly
 /* export const requestUsersFeed = (id) => async (dispatch) => {
     dispatch(toggleIsFetching(true));
-    const data = await userAPI.getUserFeed(id);
+    const data = await getUserFeed(id);
     dispatch(toggleIsFetching(false));
     dispatch(setUsersFeed(data));
 } */
@@ -64,8 +65,8 @@ export const requestUsersFeed = () => (dispatch) => {
 export const requestUsersInfo = (id) => async (dispatch) => {
     dispatch(toggleIsFetching(true));
     try {
-        const data = await userAPI.getUserInfo(id);
-        if (!Object.keys(data).length) {
+        const data = await getUserInfo(id);
+        if (!Object.keys(data).length || data === 'something went wrong, please try again') {
             dispatch(setRequestError('Empty object in userInfo'));
         } else {
             dispatch(setUsersInfo(data));
