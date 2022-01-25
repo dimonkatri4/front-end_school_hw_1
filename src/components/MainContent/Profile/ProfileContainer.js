@@ -15,6 +15,7 @@ const ProfileContainer = function ({
     trending,
     errorTrend,
     errorUser,
+    pageSize,
 }) {
     const { userId } = useParams();
 
@@ -38,6 +39,7 @@ const ProfileContainer = function ({
             trending={trending}
             errorTrend={errorTrend}
             errorUser={errorUser}
+            pageSize={pageSize}
         />
     );
 };

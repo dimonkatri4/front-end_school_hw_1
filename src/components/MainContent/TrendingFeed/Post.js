@@ -1,21 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef} from 'react';
 import Avatar from '@mui/material/Avatar';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMusic, faHeart, faComment, faShare } from '@fortawesome/free-solid-svg-icons';
+import {Link} from 'react-router-dom';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faMusic, faHeart, faComment, faShare} from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import style from './trendingFeed.module.css';
 
-const Post = function ({
-    authorMeta,
-    text,
-    musicMeta,
-    videoUrl,
-    covers,
-    shareCount,
-    commentCount,
-    diggCount,
-}) {
+const Post = function ({post}) {
     const videoRef = useRef(null);
 
     useEffect(() => {
@@ -43,71 +34,82 @@ const Post = function ({
         <div className={style.post}>
             <div className={style.postInfo}>
                 <div className={style.authorPhoto}>
-                    <Link to={`/profile/${authorMeta.id}`}>
-                        <Avatar src={authorMeta.avatar} sx={{ width: '5vw', height: '5vw' }} />
+                    <Link to={`/profile/${post.author.id}`}>
+                        <Avatar src={post.author.avatarMedium} sx={{width: '5vw', height: '5vw'}}/>
                     </Link>
                 </div>
                 <div>
                     <div>
-                        <Link to={`/profile/${authorMeta.id}`} className={style.authorName}>
-                            <span>{authorMeta.name} </span>
+                        <Link to={`/profile/${post.author.id}`} className={style.authorName}>
+                            <span>{post.author.nickname} </span>
                         </Link>
-                        <span className={style.authorNickName}>{authorMeta.nickName}</span>
+                        <span className={style.authorNickName}>{post.author.nickname}</span>
                     </div>
-                    <div className={style.postText}>{text}</div>
+                    <div className={style.postText}>{post.desc}</div>
                     <div className={style.musicInfo}>
-                        <FontAwesomeIcon icon={faMusic} />
-                        <span> {musicMeta.musicName} - </span>
-                        <span>{musicMeta.musicAuthor}</span>
+                        <FontAwesomeIcon icon={faMusic}/>
+                        <span> {post.music.title} - </span>
+                        <span>{post.music.authorName}</span>
                     </div>
                 </div>
             </div>
             <div className={style.video}>
-                <video controls ref={videoRef} poster={covers.default} loop>
-                    <source src={videoUrl} />
-                    <track kind="captions" />
+                <video controls ref={videoRef} poster={post.video.cover} loop>
+                    <source src={post.video.playAddr}/>
+                    <track kind="captions"/>
                 </video>
             </div>
             <div className={style.actionBar}>
                 <div className={style.item}>
-                    <FontAwesomeIcon icon={faHeart} /> {diggCount}
+                    <FontAwesomeIcon icon={faHeart}/> {post.stats.diggCount}
                 </div>
                 <div className={style.item}>
-                    <FontAwesomeIcon icon={faComment} /> {commentCount}
+                    <FontAwesomeIcon icon={faComment}/> {post.stats.commentCount}
                 </div>
                 <div className={style.item}>
-                    <FontAwesomeIcon icon={faShare} /> {shareCount}
+                    <FontAwesomeIcon icon={faShare}/> {post.stats.shareCount}
                 </div>
             </div>
         </div>
     );
 };
 
-Post.propTypes = {
-    authorMeta: PropTypes.shape({
-        avatar: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        nickName: PropTypes.string.isRequired,
+/* Post.propTypes = {
+    author: PropTypes.shape({
+        avatarMedium: PropTypes.string.isRequired,
+        nickname: PropTypes.string.isRequired,
         id: PropTypes.number.isRequired,
     }),
-    text: PropTypes.string.isRequired,
-    musicMeta: PropTypes.shape({
-        musicName: PropTypes.string.isRequired,
-        musicAuthor: PropTypes.string.isRequired,
+    desc: PropTypes.string.isRequired,
+    music: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        authorName: PropTypes.string.isRequired,
     }),
-    videoUrl: PropTypes.string.isRequired,
-    covers: PropTypes.shape({
-        default: PropTypes.string.isRequired,
+    video: PropTypes.shape({
+        cover: PropTypes.string.isRequired,
+        playAddr: PropTypes.string.isRequired,
     }),
-    shareCount: PropTypes.number.isRequired,
-    commentCount: PropTypes.number.isRequired,
-    diggCount: PropTypes.number.isRequired,
+    stats: PropTypes.shape({
+        shareCount: PropTypes.number.isRequired,
+        commentCount: PropTypes.number.isRequired,
+        diggCount: PropTypes.number.isRequired,
+    })
+}; */
+
+Post.propTypes = {
+    author: PropTypes.object,
+    desc: PropTypes.string,
+    music: PropTypes.object,
+    video: PropTypes.object,
+    stats: PropTypes.object
 };
 
 Post.defaultProps = {
-    authorMeta: {},
-    musicMeta: {},
-    covers: {},
+    author: {},
+    desc: '',
+    music: {},
+    video: {},
+    stats: {},
 };
 
 export default Post;

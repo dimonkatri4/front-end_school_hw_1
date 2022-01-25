@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import Pagination from '@mui/material/Pagination';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import style from './profile.module.css';
 import {getPageCount, getPortionPage} from "../../../services/paginationPage";
+import UserPost from "./UserPost";
 
 const UserPosts = function ({ trending, pageSize }) {
 
@@ -22,7 +21,8 @@ const UserPosts = function ({ trending, pageSize }) {
         <div>
             <div className={style.profilePosts}>
                 {portionPage[page - 1].map((p) => (
-                    <div className={style.postItem} key={p.id}>
+                    <UserPost post={p} key={p.id} />
+/*                    <div className={style.postItem} key={p.id}>
                         <span>
                             <FontAwesomeIcon icon={faPlay} /> {p.playCount}
                         </span>
@@ -36,7 +36,7 @@ const UserPosts = function ({ trending, pageSize }) {
                             <source src={p.videoUrl} />
                             <track kind="captions" />
                         </video>
-                    </div>
+                    </div> */
                 ))}
             </div>
             <Pagination
@@ -51,6 +51,7 @@ const UserPosts = function ({ trending, pageSize }) {
 
 UserPosts.propTypes = {
     trending: PropTypes.array,
+    pageSize: PropTypes.number.isRequired
 };
 
 UserPosts.defaultProps = {

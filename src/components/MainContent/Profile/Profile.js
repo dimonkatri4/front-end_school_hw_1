@@ -23,24 +23,24 @@ const Profile = function ({ profile, isFetching, trending, errorTrend, errorUser
             <div className={style.profileUserInfo}>
                 <div className={style.profileAvatar}>
                     <Avatar
-                        src={profile.user.avatarMedium}
+                        src={profile.avatarMedium}
                         sx={{ width: '12vw', height: '12vw' }}
                     />
                 </div>
                 <div className={style.userInfo}>
-                    <div className={style.nickname}>{profile.user.nickname}</div>
-                    <div className={style.signature}>{profile.user.signature}</div>
+                    <div className={style.nickname}>{profile.nickname}</div>
+                    <div className={style.signature}>{profile.signature}</div>
                     <div className={style.status}>
                         <div>
-                            <span>{profile.stats.followingCount} </span>
+                            <span>{profile.relation} </span>
                             Following
                         </div>
                         <div>
-                            <span>{profile.stats.followerCount} </span>
+                            <span>{profile.duetSetting} </span>
                             Followers
                         </div>
                         <div>
-                            <span>{profile.stats.heartCount} </span>
+                            <span>{profile.stitchSetting} </span>
                             Likes
                         </div>
                     </div>
@@ -57,6 +57,7 @@ Profile.propTypes = {
     trending: PropTypes.array,
     errorTrend: PropTypes.string,
     errorUser: PropTypes.string,
+    pageSize: PropTypes.number.isRequired,
 };
 
 Profile.defaultProps = {

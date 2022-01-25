@@ -64,17 +64,17 @@ export const requestUsersFeed = () => (dispatch) => {
 };
 
 export const requestUsersInfo = (id) => async (dispatch) => {
-    dispatch(toggleIsFetching(true));
     try {
+        dispatch(toggleIsFetching(true));
         const data = await getUserInfo(id);
+        dispatch(toggleIsFetching(false))
         if (!Object.keys(data).length || data === 'something went wrong, please try again') {
             dispatch(setRequestError('Empty object in userInfo'));
         } else {
             dispatch(setUsersInfo(data));
         }
-        dispatch(toggleIsFetching(false));
     } catch (error) {
-        dispatch(setRequestError(error.response.data.message));
+        dispatch(setRequestError(error));
     }
 };
 
