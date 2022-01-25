@@ -4,14 +4,14 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import style from './profile.module.css';
+import {getPageCount, getPortionPage} from "../../../services/paginationPage";
 
-const UserPosts = function ({ trending }) {
-    const pageSize = 6;
-    const subarray = [];
-    const pageCount = Math.ceil(trending.length / pageSize);
-    for (let i = 0; i < Math.ceil(trending.length / pageSize); i += 1) {
-        subarray[i] = trending.slice(i * pageSize, i * pageSize + pageSize);
-    }
+const UserPosts = function ({ trending, pageSize }) {
+
+    const portionPage = getPortionPage(trending, pageSize);
+
+    const pageCount = getPageCount(trending, pageSize);
+
     const [page, setPage] = useState(1);
 
     const handleChangePage = (event, value) => {
@@ -21,7 +21,7 @@ const UserPosts = function ({ trending }) {
     return (
         <div>
             <div className={style.profilePosts}>
-                {subarray[page - 1].map((p) => (
+                {portionPage[page - 1].map((p) => (
                     <div className={style.postItem} key={p.id}>
                         <span>
                             <FontAwesomeIcon icon={faPlay} /> {p.playCount}

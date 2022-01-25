@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { requestUsersFeed, requestUsersInfo } from '../../../redux/users-reducer';
+import { requestUsersFeed, requestUsersInfo } from '../../../store/users-reducer';
 import Profile from './Profile';
-import { requestTrendingFeed } from '../../../redux/trending-reducer';
+import { requestTrendingFeed } from '../../../store/trending-reducer';
 
 const ProfileContainer = function ({
     requestUsersInfo,
@@ -48,6 +48,7 @@ const mapStateToProps = (state) => ({
     trending: state.trending.trendingFeed,
     errorTrend: state.trending.error,
     errorUser: state.users.requestError,
+    pageSize: state.users.pageSize,
 });
 
 ProfileContainer.propTypes = {
@@ -58,6 +59,7 @@ ProfileContainer.propTypes = {
     trending: PropTypes.array,
     errorTrend: PropTypes.string,
     errorUser: PropTypes.string,
+    pageSize: PropTypes.number.isRequired,
 };
 
 ProfileContainer.defaultProps = {

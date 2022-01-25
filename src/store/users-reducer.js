@@ -1,4 +1,4 @@
-import userFeedData from '../json/user-feed.json';
+import userFeedData from '../mocks/user-feed.json';
 import getUserInfo from "../api/getUserInfo";
 
 
@@ -12,6 +12,7 @@ const initialState = {
     userInfo: null,
     isFetching: false,
     requestError: null,
+    pageSize: 6,
 };
 
 const usersReducer = (state = initialState, action) => {
