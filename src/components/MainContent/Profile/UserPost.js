@@ -3,13 +3,14 @@ import {faPlay} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import style from './profile.module.css';
+import editNumber from "../../../helpers/editNumber";
 
 const UserPost = function ({post}) {
 
     return (
         <div className={style.postItem}>
             <span>
-                <FontAwesomeIcon icon={faPlay}/> {post.stats.playCount}
+                <FontAwesomeIcon icon={faPlay}/> {editNumber(post.stats.playCount)}
             </span>
             <video
                 controls
@@ -26,13 +27,11 @@ const UserPost = function ({post}) {
 
 
 UserPost.propTypes = {
-    stats: PropTypes.object,
-    video: PropTypes.object,
+    post: PropTypes.object,
 };
 
 UserPost.defaultProps = {
-    stats: {},
-    video: {},
+    post: {},
 };
 
 export default UserPost;

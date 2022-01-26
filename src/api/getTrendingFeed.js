@@ -1,8 +1,9 @@
 import apiRequest from "./api";
 
-const getTrendingFeed = () => {
+const getTrendingFeed = async () => {
     const urlParameter = 'trending/feed';
-    return apiRequest(urlParameter)
+    const trendingFeed = await apiRequest(urlParameter);
+    return trendingFeed;
 }
 
 export default getTrendingFeed;

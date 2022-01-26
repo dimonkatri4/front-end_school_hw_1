@@ -1,8 +1,9 @@
 import apiRequest from "./api";
 
-export const getUserFeed = (id='dave.xp') => {
+export const getUserFeed = async (id='dave.xp') => {
     const urlParameter = 'user/info/' ;
-    return apiRequest(urlParameter,id)
+    const userFeed = await apiRequest(urlParameter,id);
+    return userFeed;
 }
 
 export default getUserFeed;

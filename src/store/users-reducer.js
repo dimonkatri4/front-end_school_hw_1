@@ -74,7 +74,8 @@ export const requestUsersInfo = (id) => async (dispatch) => {
             dispatch(setUsersInfo(data));
         }
     } catch (error) {
-        dispatch(setRequestError(error));
+        console.error(error)
+        // dispatch(setRequestError(error));
     }
 };
 

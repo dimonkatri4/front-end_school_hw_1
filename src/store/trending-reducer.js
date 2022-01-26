@@ -40,7 +40,8 @@ export const requestTrendingFeed = () => async (dispatch) => {
             dispatch(setTrendingFeed(data));
         }
     } catch (err) {
-        dispatch(setError(err.response.data.message));
+        console.error(err)
+        // dispatch(setError(err.response.data.message));
     }
 };
 

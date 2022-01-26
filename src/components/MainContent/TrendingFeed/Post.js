@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMusic, faHeart, faComment, faShare} from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import style from './trendingFeed.module.css';
+import editNumber from "../../../helpers/editNumber";
 
 const Post = function ({post}) {
     const videoRef = useRef(null);
@@ -34,13 +35,13 @@ const Post = function ({post}) {
         <div className={style.post}>
             <div className={style.postInfo}>
                 <div className={style.authorPhoto}>
-                    <Link to={`/profile/${post.author.id}`}>
+                    <Link to={`/profile/${post.author.uniqueId}`}>
                         <Avatar src={post.author.avatarMedium} sx={{width: '5vw', height: '5vw'}}/>
                     </Link>
                 </div>
                 <div>
                     <div>
-                        <Link to={`/profile/${post.author.id}`} className={style.authorName}>
+                        <Link to={`/profile/${post.author.uniqueId}`} className={style.authorName}>
                             <span>{post.author.nickname} </span>
                         </Link>
                         <span className={style.authorNickName}>{post.author.nickname}</span>
@@ -54,20 +55,20 @@ const Post = function ({post}) {
                 </div>
             </div>
             <div className={style.video}>
-                <video controls ref={videoRef} poster={post.video.cover} loop>
+                <video controls ref={videoRef} poster={post.video.cover} loop muted>
                     <source src={post.video.playAddr}/>
                     <track kind="captions"/>
                 </video>
             </div>
             <div className={style.actionBar}>
                 <div className={style.item}>
-                    <FontAwesomeIcon icon={faHeart}/> {post.stats.diggCount}
+                    <FontAwesomeIcon icon={faHeart}/> {editNumber(post.stats.diggCount)}
                 </div>
                 <div className={style.item}>
-                    <FontAwesomeIcon icon={faComment}/> {post.stats.commentCount}
+                    <FontAwesomeIcon icon={faComment}/> {editNumber(post.stats.commentCount)}
                 </div>
                 <div className={style.item}>
-                    <FontAwesomeIcon icon={faShare}/> {post.stats.shareCount}
+                    <FontAwesomeIcon icon={faShare}/> {editNumber(post.stats.shareCount)}
                 </div>
             </div>
         </div>
@@ -97,19 +98,11 @@ const Post = function ({post}) {
 }; */
 
 Post.propTypes = {
-    author: PropTypes.object,
-    desc: PropTypes.string,
-    music: PropTypes.object,
-    video: PropTypes.object,
-    stats: PropTypes.object
+    post: PropTypes.object,
 };
 
 Post.defaultProps = {
-    author: {},
-    desc: '',
-    music: {},
-    video: {},
-    stats: {},
+    post: PropTypes.object,
 };
 
 export default Post;
