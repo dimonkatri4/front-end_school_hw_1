@@ -22,21 +22,6 @@ const UserPosts = function ({ trending, pageSize }) {
             <div className={style.profilePosts}>
                 {portionPage[page - 1].map((p) => (
                     <UserPost post={p} key={p.id} />
-/*                    <div className={style.postItem} key={p.id}>
-                        <span>
-                            <FontAwesomeIcon icon={faPlay} /> {p.playCount}
-                        </span>
-                        <video
-                            controls
-                            loop
-                            poster={p.covers.default}
-                            className={style.video}
-                            key={p.id}
-                        >
-                            <source src={p.videoUrl} />
-                            <track kind="captions" />
-                        </video>
-                    </div> */
                 ))}
             </div>
             <Pagination

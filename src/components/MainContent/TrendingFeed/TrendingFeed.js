@@ -3,7 +3,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import PropTypes from 'prop-types';
 import style from './trendingFeed.module.css';
 import Error from '../../Error/Error';
-import Post from './Post';
+import PostItem from './PostItem/PostItem';
 
 const TrendingFeed = function ({ trending, error }) {
     if (error) {
@@ -20,7 +20,7 @@ const TrendingFeed = function ({ trending, error }) {
     return (
         <div className={style.trendingPage}>
             {trending.map((t) => (
-                <Post post={t} key={t.id} />
+                <PostItem post={t} key={t.id} />
             ))}
         </div>
     );
