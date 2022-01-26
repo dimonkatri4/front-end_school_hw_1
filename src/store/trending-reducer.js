@@ -1,4 +1,4 @@
-import getTrendingFeed from "../api/getTrendingFeed";
+import getTrendingFeed from '../api/getTrendingFeed';
 
 const SET_TRENDING_FEED = '/trending/SET_TRENDING_FEED';
 const SET_ERROR = '/trending/SET_ERROR';
@@ -40,7 +40,7 @@ export const requestTrendingFeed = () => async (dispatch) => {
             dispatch(setTrendingFeed(data));
         }
     } catch (err) {
-        console.error(err)
+        console.error(err);
         // dispatch(setError(err.response.data.message));
     }
 };

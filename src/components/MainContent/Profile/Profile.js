@@ -22,10 +22,7 @@ const Profile = function ({ profile, isFetching, trending, errorTrend, errorUser
         <div className={style.profilePage}>
             <div className={style.profileUserInfo}>
                 <div className={style.profileAvatar}>
-                    <Avatar
-                        src={profile.avatarMedium}
-                        sx={{ width: '12vw', height: '12vw' }}
-                    />
+                    <Avatar src={profile.avatarMedium} sx={{ width: '12vw', height: '12vw' }} />
                 </div>
                 <div className={style.userInfo}>
                     <div className={style.nickname}>{profile.nickname}</div>
@@ -46,7 +43,11 @@ const Profile = function ({ profile, isFetching, trending, errorTrend, errorUser
                     </div>
                 </div>
             </div>
-            {!trending ? <CircularProgress /> : <UserPosts trending={trending} pageSize={pageSize} />}
+            {!trending ? (
+                <CircularProgress />
+            ) : (
+                <UserPosts trending={trending} pageSize={pageSize} />
+            )}
         </div>
     );
 };

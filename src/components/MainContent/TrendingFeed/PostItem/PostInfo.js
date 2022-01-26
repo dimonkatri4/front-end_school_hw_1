@@ -1,17 +1,17 @@
 import React from 'react';
 import Avatar from '@mui/material/Avatar';
-import {Link} from 'react-router-dom';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faMusic} from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMusic } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import style from '../trendingFeed.module.css';
 
-const PostInfo = function ({author, desc, music}) {
+const PostInfo = function ({ author, desc, music }) {
     return (
         <div className={style.postInfo}>
             <div className={style.authorPhoto}>
                 <Link to={`/profile/${author.uniqueId}`}>
-                    <Avatar src={author.avatarMedium} sx={{width: '5vw', height: '5vw'}}/>
+                    <Avatar src={author.avatarMedium} sx={{ width: '5vw', height: '5vw' }} />
                 </Link>
             </div>
             <div>
@@ -23,15 +23,14 @@ const PostInfo = function ({author, desc, music}) {
                 </div>
                 <div className={style.postText}>{desc}</div>
                 <div className={style.musicInfo}>
-                    <FontAwesomeIcon icon={faMusic}/>
+                    <FontAwesomeIcon icon={faMusic} />
                     <span> {music.title} - </span>
                     <span>{music.authorName}</span>
                 </div>
             </div>
         </div>
-    )
-}
-
+    );
+};
 
 PostInfo.propTypes = {
     author: PropTypes.object,

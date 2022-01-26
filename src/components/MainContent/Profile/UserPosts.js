@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import Pagination from '@mui/material/Pagination';
 import PropTypes from 'prop-types';
 import style from './profile.module.css';
-import {getPageCount, getPortionPage} from "../../../services/paginationPage";
-import UserPost from "./UserPost";
+import { getPageCount, getPortionPage } from '../../../services/paginationPage';
+import UserPost from './UserPost';
 
 const UserPosts = function ({ trending, pageSize }) {
-
     const portionPage = getPortionPage(trending, pageSize);
 
     const pageCount = getPageCount(trending, pageSize);
@@ -36,7 +35,7 @@ const UserPosts = function ({ trending, pageSize }) {
 
 UserPosts.propTypes = {
     trending: PropTypes.array,
-    pageSize: PropTypes.number.isRequired
+    pageSize: PropTypes.number.isRequired,
 };
 
 UserPosts.defaultProps = {

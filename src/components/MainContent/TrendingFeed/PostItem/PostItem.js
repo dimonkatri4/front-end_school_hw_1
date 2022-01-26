@@ -1,11 +1,11 @@
-import React, {useEffect, useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import style from '../trendingFeed.module.css';
-import PostInfo from "./PostInfo";
-import Video from "./Video";
-import ActionBar from "./ActionBar";
+import PostInfo from './PostInfo';
+import Video from './Video';
+import ActionBar from './ActionBar';
 
-const PostItem = function ({post}) {
+const PostItem = function ({ post }) {
     const videoRef = useRef(null);
 
     useEffect(() => {

@@ -1,6 +1,5 @@
 import userFeedData from '../mocks/user-feed.json';
-import getUserInfo from "../api/getUserInfo";
-
+import getUserInfo from '../api/getUserInfo';
 
 const SET_USERS_FEED = '/users/SET_USERS_FEED';
 const SET_USERS_INFO = '/users/SET_USERS_INFO';
@@ -67,14 +66,14 @@ export const requestUsersInfo = (id) => async (dispatch) => {
     try {
         dispatch(toggleIsFetching(true));
         const data = await getUserInfo(id);
-        dispatch(toggleIsFetching(false))
+        dispatch(toggleIsFetching(false));
         if (!Object.keys(data).length || data === 'something went wrong, please try again') {
             dispatch(setRequestError('Empty object in userInfo'));
         } else {
             dispatch(setUsersInfo(data));
         }
     } catch (error) {
-        console.error(error)
+        console.error(error);
         // dispatch(setRequestError(error));
     }
 };

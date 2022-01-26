@@ -1,4 +1,3 @@
-
 const editNumber = (num) => {
     if (num > 999 && num < 1000000) {
         return `${(num / 1000).toFixed(1)}K`;
@@ -9,4 +8,4 @@ const editNumber = (num) => {
     return num;
 };
 
-export default editNumber
+export default editNumber;
