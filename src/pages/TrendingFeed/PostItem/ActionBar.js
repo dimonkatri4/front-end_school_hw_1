@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment, faHeart, faShare } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import style from '../trendingFeed.module.css';
-import editNumber from '../../../../helpers/editNumber';
+import editNumber from '../../../helpers/editNumber';
 
 const ActionBar = function ({ stats }) {
     return (

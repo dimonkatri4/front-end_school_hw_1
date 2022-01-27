@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { requestUsersFeed, requestUsersInfo } from '../../../store/users-reducer';
+import { requestUsersFeed, requestUsersInfo } from '../../store/users-reducer';
 import Profile from './Profile';
-import { requestTrendingFeed } from '../../../store/trending-reducer';
+import { requestTrendingFeed } from '../../store/trending-reducer';
 
 const ProfileContainer = function ({
     requestUsersInfo,

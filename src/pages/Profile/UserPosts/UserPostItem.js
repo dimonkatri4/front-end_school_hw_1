@@ -2,10 +2,10 @@ import React from 'react';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
-import style from './profile.module.css';
+import style from '../profile.module.css';
 import editNumber from '../../../helpers/editNumber';
 
-const UserPost = function ({ post }) {
+const UserPostItem = function ({ post }) {
     return (
         <div className={style.postItem}>
             <span>
@@ -19,12 +19,12 @@ const UserPost = function ({ post }) {
     );
 };
 
-UserPost.propTypes = {
+UserPostItem.propTypes = {
     post: PropTypes.object,
 };
 
-UserPost.defaultProps = {
+UserPostItem.defaultProps = {
     post: {},
 };
 
-export default UserPost;
+export default UserPostItem;

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Pagination from '@mui/material/Pagination';
 import PropTypes from 'prop-types';
-import style from './profile.module.css';
+import style from '../profile.module.css';
 import { getPageCount, getPortionPage } from '../../../services/paginationPage';
-import UserPost from './UserPost';
+import UserPostItem from './UserPostItem';
 
 const UserPosts = function ({ trending, pageSize }) {
     const portionPage = getPortionPage(trending, pageSize);
@@ -20,7 +20,7 @@ const UserPosts = function ({ trending, pageSize }) {
         <div>
             <div className={style.profilePosts}>
                 {portionPage[page - 1].map((p) => (
-                    <UserPost post={p} key={p.id} />
+                    <UserPostItem post={p} key={p.id} />
                 ))}
             </div>
             <Pagination

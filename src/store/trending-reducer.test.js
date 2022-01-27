@@ -3,25 +3,21 @@ import trendingReducer, {
     setError,
     setTrendingFeed,
 } from './trending-reducer';
+import getTrendingFeed from '../api/getTrendingFeed';
 
-const trendingAPI = require('../api/api').trendingAPI;
-jest.mock('../api/api', () => ({
-    trendingAPI: {
-        getTrendingFeed: jest.fn(),
-    },
-}));
+jest.mock('../api/getTrendingFeed');
 
 describe('Trending reducer', () => {
     describe('Thunk trending-reducer', () => {
         it('success requestTrendingFeed thunk', async () => {
-            trendingAPI.getTrendingFeed.mockResolvedValue([{ data: {} }]);
+            getTrendingFeed.mockResolvedValue([{ data: {} }]);
             const dispatchMock = jest.fn();
             await requestTrendingFeed()(dispatchMock);
             expect(dispatchMock).toBeCalledTimes(1);
             expect(dispatchMock).toHaveBeenNthCalledWith(1, setTrendingFeed([{ data: {} }]));
         });
         it('query returned empty array', async () => {
-            trendingAPI.getTrendingFeed.mockResolvedValue([]);
+            getTrendingFeed.mockResolvedValue([]);
             const dispatchMock = jest.fn();
             await requestTrendingFeed()(dispatchMock);
             expect(dispatchMock).toBeCalledTimes(1);
@@ -35,7 +31,7 @@ describe('Trending reducer', () => {
                     },
                 },
             };
-            trendingAPI.getTrendingFeed.mockRejectedValue(error);
+            getTrendingFeed.mockRejectedValue(error);
             const dispatchMock = jest.fn();
             await requestTrendingFeed()(dispatchMock);
             expect(dispatchMock).toBeCalledTimes(1);

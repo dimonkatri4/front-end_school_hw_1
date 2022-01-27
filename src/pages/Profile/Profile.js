@@ -1,10 +1,10 @@
 import React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
-import Avatar from '@mui/material/Avatar';
 import PropTypes from 'prop-types';
 import style from './profile.module.css';
-import Error from '../../Error/Error';
-import UserPosts from './UserPosts';
+import Error from '../../components/Error/Error';
+import UserPosts from './UserPosts/UserPosts';
+import ProfileHeader from "./ProfileHeader/ProfileHeader";
 
 const Profile = function ({ profile, isFetching, trending, errorTrend, errorUser, pageSize }) {
     if (errorTrend || errorUser) {
@@ -20,29 +20,7 @@ const Profile = function ({ profile, isFetching, trending, errorTrend, errorUser
     }
     return (
         <div className={style.profilePage}>
-            <div className={style.profileUserInfo}>
-                <div className={style.profileAvatar}>
-                    <Avatar src={profile.avatarMedium} sx={{ width: '12vw', height: '12vw' }} />
-                </div>
-                <div className={style.userInfo}>
-                    <div className={style.nickname}>{profile.nickname}</div>
-                    <div className={style.signature}>{profile.signature}</div>
-                    <div className={style.status}>
-                        <div>
-                            <span>{profile.relation} </span>
-                            Following
-                        </div>
-                        <div>
-                            <span>{profile.duetSetting} </span>
-                            Followers
-                        </div>
-                        <div>
-                            <span>{profile.stitchSetting} </span>
-                            Likes
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ProfileHeader profile={profile} />
             {!trending ? (
                 <CircularProgress />
             ) : (

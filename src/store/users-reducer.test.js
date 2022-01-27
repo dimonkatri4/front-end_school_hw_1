@@ -5,36 +5,35 @@ import usersReducer, {
     setUsersInfo,
     toggleIsFetching,
 } from './users-reducer';
+import getUserInfo from '../api/getUserInfo';
 
-const userAPI = require('../api/api').userAPI;
-jest.mock('../api/api', () => ({
-    userAPI: {
-        getUserInfo: jest.fn(),
-    },
-}));
+
+jest.mock('../api/getUserInfo');
 
 describe('User reducer', () => {
     describe('Thunk requestUsersInfo of user-reducer', () => {
         it('success requestUsersInfo thunk', async () => {
-            userAPI.getUserInfo.mockResolvedValue({ data: {} });
+            getUserInfo.mockResolvedValue({ data: {} });
             const dispatchMock = jest.fn();
             await requestUsersInfo(1)(dispatchMock);
             expect(dispatchMock).toBeCalledTimes(3);
             expect(dispatchMock).toHaveBeenNthCalledWith(1, toggleIsFetching(true));
-            expect(dispatchMock).toHaveBeenNthCalledWith(2, setUsersInfo({ data: {} }));
-            expect(dispatchMock).toHaveBeenNthCalledWith(3, toggleIsFetching(false));
+            expect(dispatchMock).toHaveBeenNthCalledWith(2, toggleIsFetching(false));
+            expect(dispatchMock).toHaveBeenNthCalledWith(3, setUsersInfo({ data: {} }));
+
         });
         it('query returned empty object', async () => {
-            userAPI.getUserInfo.mockResolvedValue({});
+            getUserInfo.mockResolvedValue({});
             const dispatchMock = jest.fn();
             await requestUsersInfo(1)(dispatchMock);
             expect(dispatchMock).toBeCalledTimes(3);
             expect(dispatchMock).toHaveBeenNthCalledWith(1, toggleIsFetching(true));
+            expect(dispatchMock).toHaveBeenNthCalledWith(2, toggleIsFetching(false));
             expect(dispatchMock).toHaveBeenNthCalledWith(
-                2,
+                3,
                 setRequestError('Empty object in userInfo')
             );
-            expect(dispatchMock).toHaveBeenNthCalledWith(3, toggleIsFetching(false));
+
         });
         it('fails requestUsersInfo thunk', async () => {
             const error = {
@@ -44,7 +43,7 @@ describe('User reducer', () => {
                     },
                 },
             };
-            userAPI.getUserInfo.mockRejectedValue(error);
+            getUserInfo.mockRejectedValue(error);
             const dispatchMock = jest.fn();
             await requestUsersInfo(1)(dispatchMock);
             expect(dispatchMock).toBeCalledTimes(2);

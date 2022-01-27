@@ -4,7 +4,7 @@ import { Navigate } from 'react-router';
 import ProfileContainer from './Profile/ProfileContainer';
 import TrendingFeedContainer from './TrendingFeed/TrendingFeedContainer';
 
-const MainContent = function () {
+const MainPage = function () {
     return (
         <div className="mainContent">
             <Routes>
@@ -17,4 +17,4 @@ const MainContent = function () {
     );
 };
 
-export default MainContent;
+export default MainPage;

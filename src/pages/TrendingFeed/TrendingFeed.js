@@ -2,7 +2,7 @@ import React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import PropTypes from 'prop-types';
 import style from './trendingFeed.module.css';
-import Error from '../../Error/Error';
+import Error from '../../components/Error/Error';
 import PostItem from './PostItem/PostItem';
 
 const TrendingFeed = function ({ trending, error }) {
