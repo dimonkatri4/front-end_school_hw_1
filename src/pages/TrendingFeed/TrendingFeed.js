@@ -18,7 +18,7 @@ const TrendingFeed = function ({ trending, error }) {
         );
     }
     return (
-        <div className={style.trendingPage}>
+        <div className={style.trendingPage} data-testid='trendingPage'>
             {trending.map((t) => (
                 <PostItem post={t} key={t.id} />
             ))}

@@ -8,7 +8,7 @@ const Error = function ({ errors }) {
         <div className={style.errorBlock}>
             <h1>Error!</h1>
             {Array.isArray(errors) ? (
-                errors.map((error) => <div className={style.errorItem}>{error}</div>)
+                errors.map((error) => <div className={style.errorItem} key={error}>{error}</div>)
             ) : (
                 <div className={style.errorItem}>{errors}</div>
             )}
