@@ -8,7 +8,7 @@ import style from '../trendingFeed.module.css';
 
 const PostInfo = function ({ author, desc, music }) {
     return (
-        <div className={style.postInfo}>
+        <div className={style.postInfo} data-testid='postInfo'>
             <div className={style.authorPhoto}>
                 <Link to={`/profile/${author.uniqueId}`}>
                     <Avatar src={author.avatarMedium} sx={{ width: '5vw', height: '5vw' }} />
