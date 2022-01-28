@@ -12,7 +12,7 @@ const TrendingFeed = function ({ trending, error }) {
 
     if (!trending) {
         return (
-            <div>
+            <div data-testid='preloader'>
                 <CircularProgress />
             </div>
         );
