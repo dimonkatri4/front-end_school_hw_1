@@ -30,7 +30,7 @@ const PostItem = function ({ post }) {
     }, [videoRef]);
 
     return (
-        <div className={style.post}>
+        <div className={style.post} role='postItem'>
             <PostInfo author={post.author} desc={post.desc} music={post.music} />
             <Video videoRef={videoRef} video={post.video} />
             <ActionBar stats={post.stats} />

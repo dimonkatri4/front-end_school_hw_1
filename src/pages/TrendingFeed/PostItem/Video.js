@@ -4,8 +4,8 @@ import style from '../trendingFeed.module.css';
 
 const Video = function ({ video, videoRef }) {
     return (
-        <div className={style.video}>
-            <video ref={videoRef} controls poster={video.cover} loop muted>
+        <div className={style.video} >
+            <video ref={videoRef} controls poster={video.cover} loop muted data-testid='video'>
                 <source src={video.playAddr} />
                 <track kind="captions" />
             </video>

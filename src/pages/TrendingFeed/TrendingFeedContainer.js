@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import TrendingFeed from './TrendingFeed';
 import { requestTrendingFeed } from '../../store/trending-reducer';
 
-const TrendingFeedContainer = function ({ requestTrendingFeed, trending, error }) {
+export const TrendingFeedContainer = function ({ requestTrendingFeed, trending, error }) {
     useEffect(() => {
         requestTrendingFeed();
     }, []);

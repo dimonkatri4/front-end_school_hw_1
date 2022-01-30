@@ -8,18 +8,18 @@ import ProfileHeader from "./ProfileHeader/ProfileHeader";
 
 const Profile = function ({ profile, isFetching, trending, errorTrend, errorUser, pageSize }) {
     if (errorTrend || errorUser) {
-        return <Error errors={[errorTrend, errorUser]} />;
+        return <Error errors={[errorTrend, errorUser]} role='error' />;
     }
 
     if (!profile || isFetching) {
         return (
-            <div className={style.profileUserInfo}>
+            <div className={style.profileUserInfo} role='preloader'>
                 <CircularProgress />
             </div>
         );
     }
     return (
-        <div className={style.profilePage}>
+        <div className={style.profilePage} role='profile'>
             <ProfileHeader profile={profile} />
             {!trending ? (
                 <CircularProgress />

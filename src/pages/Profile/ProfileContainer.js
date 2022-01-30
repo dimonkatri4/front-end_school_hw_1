@@ -7,7 +7,7 @@ import { requestUsersFeed, requestUsersInfo } from '../../store/users-reducer';
 import Profile from './Profile';
 import { requestTrendingFeed } from '../../store/trending-reducer';
 
-const ProfileContainer = function ({
+export const ProfileContainer = function ({
     requestUsersInfo,
     requestTrendingFeed,
     profile,

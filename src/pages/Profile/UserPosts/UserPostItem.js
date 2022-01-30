@@ -7,12 +7,12 @@ import editNumber from '../../../helpers/editNumber';
 
 const UserPostItem = function ({ post }) {
     return (
-        <div className={style.postItem}>
+        <div className={style.postItem} role='postItem'>
             <span>
                 <FontAwesomeIcon icon={faPlay} /> {editNumber(post.stats.playCount)}
             </span>
-            <video controls loop poster={post.video.cover} className={style.video}>
-                <source src={post.video.playAddr} />
+            <video controls loop poster={post.video.cover} className={style.video} role='video'>
+                <source src={post.video.playAddr} role='source' />
                 <track kind="captions" />
             </video>
         </div>
