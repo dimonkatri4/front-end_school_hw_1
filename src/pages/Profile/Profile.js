@@ -4,22 +4,22 @@ import PropTypes from 'prop-types';
 import style from './profile.module.css';
 import Error from '../../components/Error/Error';
 import UserPosts from './UserPosts/UserPosts';
-import ProfileHeader from "./ProfileHeader/ProfileHeader";
+import ProfileHeader from './ProfileHeader/ProfileHeader';
 
 const Profile = function ({ profile, isFetching, trending, errorTrend, errorUser, pageSize }) {
     if (errorTrend || errorUser) {
-        return <Error errors={[errorTrend, errorUser]} data-testid='error'  />;
+        return <Error errors={[errorTrend, errorUser]} data-testid="error" />;
     }
 
     if (!profile || isFetching) {
         return (
-            <div className={style.profileUserInfo} data-testid='preloader'>
+            <div className={style.profileUserInfo} data-testid="preloader">
                 <CircularProgress />
             </div>
         );
     }
     return (
-        <div className={style.profilePage} data-testid='profile'>
+        <div className={style.profilePage} data-testid="profile">
             <ProfileHeader profile={profile} />
             {!trending ? (
                 <CircularProgress />

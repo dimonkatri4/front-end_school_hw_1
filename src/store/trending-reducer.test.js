@@ -1,7 +1,4 @@
-import trendingReducer, {
-    setError,
-    setTrendingFeed,
-} from './trending-reducer';
+import trendingReducer, { setError, setTrendingFeed } from './trending-reducer';
 
 describe('Test trendingReducer', () => {
     let state;

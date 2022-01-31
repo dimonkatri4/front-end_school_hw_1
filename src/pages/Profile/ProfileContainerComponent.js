@@ -4,10 +4,10 @@ import { compose } from 'redux';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Profile from './Profile';
-import requestTrendingFeed from "../../services/requestTrendingFeed.thunk";
-import requestUsersInfo from "../../services/requestUsersInfo.thunk";
+import requestTrendingFeed from '../../services/requestTrendingFeed.thunk';
+import requestUsersInfo from '../../services/requestUsersInfo.thunk';
 
-export const ProfileContainer = function ({
+export const ProfileContainerComponent = function ({
     requestUsersInfo,
     requestTrendingFeed,
     profile,
@@ -48,7 +48,7 @@ const mapStateToProps = (state) => ({
     pageSize: state.users.pageSize,
 });
 
-ProfileContainer.propTypes = {
+ProfileContainerComponent.propTypes = {
     requestUsersInfo: PropTypes.func.isRequired,
     requestTrendingFeed: PropTypes.func.isRequired,
     profile: PropTypes.object,
@@ -59,7 +59,7 @@ ProfileContainer.propTypes = {
     pageSize: PropTypes.number.isRequired,
 };
 
-ProfileContainer.defaultProps = {
+ProfileContainerComponent.defaultProps = {
     profile: {},
     isFetching: null,
     trending: [],
@@ -72,4 +72,4 @@ export default compose(
         requestUsersInfo,
         requestTrendingFeed,
     })
-)(ProfileContainer);
+)(ProfileContainerComponent);

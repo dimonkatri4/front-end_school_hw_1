@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Navigate } from 'react-router';
-import ProfileContainer from './Profile/ProfileContainer';
-import TrendingFeedContainer from './TrendingFeed/TrendingFeedContainer';
+import ProfileContainer from './Profile/ProfileContainerComponent';
+import TrendingFeedContainer from './TrendingFeed/TrendingFeedContainerComponent';
 
 const MainPage = function () {
     return (

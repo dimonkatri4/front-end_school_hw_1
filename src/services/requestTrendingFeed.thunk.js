@@ -1,5 +1,5 @@
-import getTrendingFeed from "../api/getTrendingFeed";
-import {setError, setTrendingFeed} from "../store/trending-reducer";
+import getTrendingFeed from '../api/getTrendingFeed';
+import { setError, setTrendingFeed } from '../store/trending-reducer';
 
 const requestTrendingFeed = () => async (dispatch) => {
     try {
@@ -14,4 +14,4 @@ const requestTrendingFeed = () => async (dispatch) => {
     }
 };
 
-export default requestTrendingFeed
+export default requestTrendingFeed;

@@ -1,6 +1,6 @@
-import getTrendingFeed from "../api/getTrendingFeed";
-import {setError, setTrendingFeed} from "../store/trending-reducer";
-import requestTrendingFeed from "./requestTrendingFeed.thunk";
+import getTrendingFeed from '../api/getTrendingFeed';
+import { setError, setTrendingFeed } from '../store/trending-reducer';
+import requestTrendingFeed from './requestTrendingFeed.thunk';
 
 jest.mock('../api/getTrendingFeed');
 

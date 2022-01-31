@@ -57,4 +57,3 @@ describe('User reducer', () => {
         expect(newState.requestError).toBe(error);
     });
 });
-

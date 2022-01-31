@@ -17,7 +17,7 @@ const UserPosts = function ({ trending, pageSize }) {
     };
 
     return (
-        <div data-testid='userPosts'>
+        <div data-testid="userPosts">
             <div className={style.profilePosts}>
                 {portionPage[page - 1].map((p) => (
                     <UserPostItem post={p} key={p.id} />

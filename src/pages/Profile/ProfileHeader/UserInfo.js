@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from '../profile.module.css';
 
-const UserInfo = function ({profile}) {
+const UserInfo = function ({ profile }) {
     return (
-        <div className={style.userInfo} data-testid='userInfo'>
+        <div className={style.userInfo} data-testid="userInfo">
             <div className={style.nickname}>{profile.nickname}</div>
             <div className={style.signature}>{profile.signature}</div>
             <div className={style.status}>

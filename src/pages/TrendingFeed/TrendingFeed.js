@@ -12,13 +12,13 @@ const TrendingFeed = function ({ trending, error }) {
 
     if (!trending) {
         return (
-            <div data-testid='preloader'>
+            <div data-testid="preloader">
                 <CircularProgress />
             </div>
         );
     }
     return (
-        <div className={style.trendingPage} data-testid='trendingPage'>
+        <div className={style.trendingPage} data-testid="trendingPage">
             {trending.map((t) => (
                 <PostItem post={t} key={t.id} />
             ))}

@@ -1,5 +1,5 @@
-import getUserInfo from "../api/getUserInfo";
-import {setRequestError, setUsersInfo, toggleIsFetching} from "../store/users-reducer";
+import getUserInfo from '../api/getUserInfo';
+import { setRequestError, setUsersInfo, toggleIsFetching } from '../store/users-reducer';
 
 const requestUsersInfo = (id) => async (dispatch) => {
     try {
@@ -16,4 +16,4 @@ const requestUsersInfo = (id) => async (dispatch) => {
     }
 };
 
-export default requestUsersInfo
+export default requestUsersInfo;

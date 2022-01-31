@@ -7,7 +7,7 @@ import editNumber from '../../../helpers/editNumber';
 
 const ActionBar = function ({ stats }) {
     return (
-        <div className={style.actionBar} data-testid='actionBar'>
+        <div className={style.actionBar} data-testid="actionBar">
             <div className={style.item}>
                 <FontAwesomeIcon icon={faHeart} /> {editNumber(stats.diggCount)}
             </div>
