@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { requestUsersFeed, requestUsersInfo } from '../../store/users-reducer';
 import Profile from './Profile';
-import { requestTrendingFeed } from '../../store/trending-reducer';
+import requestTrendingFeed from "../../services/requestTrendingFeed.thunk";
+import requestUsersInfo from "../../services/requestUsersInfo.thunk";
 
 export const ProfileContainer = function ({
     requestUsersInfo,
@@ -26,11 +26,6 @@ export const ProfileContainer = function ({
     useEffect(() => {
         requestTrendingFeed();
     }, []);
-
-    // In case the data came from the server correctly
-    /*    useEffect(()=> {
-        userId ? props.requestUsersFeed(userId) : props.requestUsersFeed()
-    },[]) */
 
     return (
         <Profile
@@ -75,7 +70,6 @@ ProfileContainer.defaultProps = {
 export default compose(
     connect(mapStateToProps, {
         requestUsersInfo,
-        requestUsersFeed,
         requestTrendingFeed,
     })
 )(ProfileContainer);

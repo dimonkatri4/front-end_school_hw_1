@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import TrendingFeed from './TrendingFeed';
-import { requestTrendingFeed } from '../../store/trending-reducer';
+import requestTrendingFeed from "../../services/requestTrendingFeed.thunk";
 
 export const TrendingFeedContainer = function ({ requestTrendingFeed, trending, error }) {
     useEffect(() => {
