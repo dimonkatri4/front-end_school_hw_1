@@ -6,7 +6,7 @@ import UserAvatar from "./UserAvatar";
 
 const ProfileHeader = function ({profile}) {
     return (
-            <div className={style.profileUserInfo} role='profileUserInfo'>
+            <div className={style.profileUserInfo} data-testid='profileUserInfo'>
                 <UserAvatar avatar={profile.avatarMedium} />
                 <UserInfo profile={profile} />
             </div>

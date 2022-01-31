@@ -9,6 +9,6 @@ describe('ProfileHeader component', () => {
         render(
             <ProfileHeader profile={profile}/>
         );
-        expect(screen.getByRole('profileUserInfo')).toBeInTheDocument();;
+        expect(screen.getByTestId('profileUserInfo')).toBeInTheDocument();;
     });
 })

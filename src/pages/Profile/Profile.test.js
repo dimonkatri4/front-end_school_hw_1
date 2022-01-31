@@ -22,17 +22,17 @@ const errorTrend = 'Some error';
 describe('Profile component', () => {
     it('Profile render', () => {
         render(<Profile profile={profile} pageSize={pageSize} />);
-        expect(screen.getByRole('profile')).toBeInTheDocument();
-        expect(screen.getByRole('profile')).toHaveClass('profilePage')
+        expect(screen.getByTestId('profile')).toBeInTheDocument();
+        expect(screen.getByTestId('profile')).toHaveClass('profilePage')
     })
     it('no profile props, render preloader', () => {
         render(<Profile profile={null} pageSize={pageSize} />);
-        expect(screen.getByRole('preloader')).toBeInTheDocument();
-        expect(screen.queryByRole('profile')).toBeNull();
+        expect(screen.getByTestId('preloader')).toBeInTheDocument();
+        expect(screen.queryByTestId('profile')).toBeNull();
     })
     it('error props', () => {
         render(<Profile errorTrend={errorTrend} pageSize={pageSize} />);
-        expect(screen.queryByRole('profile')).toBeNull();
-        expect(screen.queryByRole('preloader')).toBeNull();
+        expect(screen.queryByTestId('profile')).toBeNull();
+        expect(screen.queryByTestId('preloader')).toBeNull();
     })
 })

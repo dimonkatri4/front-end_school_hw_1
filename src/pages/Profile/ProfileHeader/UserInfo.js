@@ -4,7 +4,7 @@ import style from '../profile.module.css';
 
 const UserInfo = function ({profile}) {
     return (
-        <div className={style.userInfo}>
+        <div className={style.userInfo} data-testid='userInfo'>
             <div className={style.nickname}>{profile.nickname}</div>
             <div className={style.signature}>{profile.signature}</div>
             <div className={style.status}>

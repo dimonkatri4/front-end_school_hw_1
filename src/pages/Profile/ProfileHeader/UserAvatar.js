@@ -7,7 +7,7 @@ import style from '../profile.module.css';
 const UserAvatar = function ({avatar}) {
     return (
         <div className={style.profileAvatar}>
-            <Avatar src={avatar} sx={{ width: '12vw', height: '12vw' }} />
+            <Avatar src={avatar} sx={{ width: '12vw', height: '12vw' }} data-testid='avatar' />
         </div>
     );
 };

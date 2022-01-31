@@ -16,6 +16,6 @@ describe('UserPosts component', () => {
         render(
             <UserPosts trending={trending} pageSize={pageSize}/>
         );
-        expect(screen.getByRole('userPosts')).toBeInTheDocument();;
+        expect(screen.getByTestId('userPosts')).toBeInTheDocument();;
     });
 })

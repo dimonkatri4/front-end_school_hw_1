@@ -18,14 +18,14 @@ describe('UserPostItem component', () => {
         render(
             <UserPostItem post={post}/>
         );
-        expect(screen.getByRole('postItem')).toBeInTheDocument();;
+        expect(screen.getByTestId('postItem')).toBeInTheDocument();;
     });
     it('props transferred to the component', () => {
         render(
             <UserPostItem post={post}/>
         );
         expect(screen.getByText(post.stats.playCount)).toBeInTheDocument();
-        expect(screen.getByRole('video')).toHaveAttribute('poster', post.video.cover);
-        expect(screen.getByRole('source')).toHaveAttribute('src', post.video.playAddr);
+        expect(screen.getByTestId('video')).toHaveAttribute('poster', post.video.cover);
+        expect(screen.getByTestId('source')).toHaveAttribute('src', post.video.playAddr);
     });
 })

@@ -28,7 +28,7 @@ describe('PostItem component', () => {
             <MemoryRouter>
                 <PostItem post={post}/>
             </MemoryRouter>);
-        expect(screen.getByRole('postItem')).toBeInTheDocument();
-        expect(screen.getByRole('postItem')).toHaveClass('post');
+        expect(screen.getByTestId('postItem')).toBeInTheDocument();
+        expect(screen.getByTestId('postItem')).toHaveClass('post');
     })
 })

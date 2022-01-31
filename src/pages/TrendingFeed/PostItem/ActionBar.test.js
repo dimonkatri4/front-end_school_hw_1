@@ -13,8 +13,8 @@ describe('ActionBar component', () => {
         render(
                 <ActionBar stats={stats}/>
             );
-        expect(screen.getByRole('actionBar')).toBeInTheDocument();
-        expect(screen.getByRole('actionBar')).toHaveClass('actionBar');
+        expect(screen.getByTestId('actionBar')).toBeInTheDocument();
+        expect(screen.getByTestId('actionBar')).toHaveClass('actionBar');
     });
     it('props should appear on the page', () => {
         render(
