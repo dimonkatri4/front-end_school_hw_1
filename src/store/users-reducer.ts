@@ -4,19 +4,19 @@ const SET_USERS_INFO = '/users/SET_USERS_INFO';
 const TOGGLE_IS_FETCHING = 'users/TOGGLE_IS_FETCHING';
 const SET_REQUEST_ERROR = '/users/SET_REQUEST_ERROR';
 
-const initialState: InitialStateUserType = {
-    userInfo: null,
-    isFetching: false,
-    requestError: null,
-    pageSize: 6,
-};
-
 export type InitialStateUserType = {
     userInfo: UserInfo | null
     isFetching: boolean
     requestError: Error | null
     pageSize: number
 }
+
+const initialState: InitialStateUserType = {
+    userInfo: null,
+    isFetching: false,
+    requestError: null,
+    pageSize: 6,
+};
 
 const usersReducer = (state = initialState, action: any): InitialStateUserType => {
     switch (action.type) {
