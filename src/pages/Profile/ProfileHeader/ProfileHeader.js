@@ -1,8 +1,8 @@
 import React from 'react';
+import {UserAvatar} from "@dimonkatri4/tiktuk-component-library";
 import PropTypes from 'prop-types';
 import style from '../profile.module.css';
 import UserInfo from './UserInfo';
-import UserAvatar from './UserAvatar';
 
 const ProfileHeader = function ({ profile }) {
     return (
