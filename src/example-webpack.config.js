@@ -77,6 +77,9 @@ module.exports = env => {
         })
       ]
     },
+    plugins: [
+      new BundleAnalyzerPlugin()
+    ],
     module: {
       rules: [
         {
