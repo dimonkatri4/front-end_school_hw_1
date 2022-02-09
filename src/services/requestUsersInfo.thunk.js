@@ -6,8 +6,8 @@ const requestUsersInfo = (id) => async (dispatch) => {
         dispatch(toggleIsFetching(true));
         const data = await getUserInfo(id);
         dispatch(toggleIsFetching(false));
-        if (!Object.keys(data).length || data === 'something went wrong, please try again') {
-            dispatch(setRequestError('Empty object in userInfo'));
+        if (!Object.keys(data).length || data === 'something went wrong, please try again' || data.error) {
+            dispatch(setRequestError(data.error || 'Empty object in userInfo'));
         } else {
             dispatch(setUsersInfo(data));
         }

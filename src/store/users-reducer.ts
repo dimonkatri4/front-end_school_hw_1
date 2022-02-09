@@ -18,6 +18,7 @@ const initialState: InitialStateUserType = {
     pageSize: 6,
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const usersReducer = (state = initialState, action: any): InitialStateUserType => {
     switch (action.type) {
         case SET_USERS_INFO:

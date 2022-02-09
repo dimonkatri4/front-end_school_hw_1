@@ -48,6 +48,6 @@ describe('Test trendingReducer', () => {
         const error = new Error('Some error');
         const action = setError(error);
         const newState = trendingReducer(state, action);
-        expect(newState.error).toBe('Some error');
+        expect(newState.error).toBe(error);
     });
 });

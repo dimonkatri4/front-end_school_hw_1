@@ -13,6 +13,7 @@ const initialState: InitialStateType = {
     error: null
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const trendingReducer = (state = initialState, action: any): InitialStateType  => {
     switch (action.type) {
         case SET_TRENDING_FEED:
