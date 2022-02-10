@@ -6,6 +6,7 @@ import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { NavLink } from 'react-router-dom';
 import style from './header.module.css';
 import logo from '../../assets/logo.png';
+// import Logo from "./Logo";
 
 const Header = function () {
     return (
