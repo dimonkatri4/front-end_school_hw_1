@@ -1,6 +1,6 @@
 import getTrendingFeed from '../api/getTrendingFeed';
 import { setError, setTrendingFeed } from '../store/trending-reducer';
-
+// @ts-ignore
 const requestTrendingFeed = () => async (dispatch) => {
     try {
         const data = await getTrendingFeed();
@@ -10,6 +10,7 @@ const requestTrendingFeed = () => async (dispatch) => {
             dispatch(setTrendingFeed(data));
         }
     } catch (err) {
+        // @ts-ignore
         dispatch(setError(err.response.data.message));
     }
 };
