@@ -1,9 +1,12 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import PropTypes from 'prop-types';
 import style from './error.module.css';
 
-const Error = function ({ errors }) {
+type Props = {
+    errors: string[] | string
+}
+
+const Error = function ({ errors }: Props) {
     return (
         <div className={style.errorBlock} data-testid="error">
             <h1>Error!</h1>
@@ -23,10 +26,6 @@ const Error = function ({ errors }) {
             </Button>
         </div>
     );
-};
-
-Error.propTypes = {
-    errors: PropTypes.oneOfType([PropTypes.array, PropTypes.string]).isRequired,
 };
 
 export default Error;
