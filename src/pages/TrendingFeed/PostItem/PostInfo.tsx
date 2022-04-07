@@ -3,10 +3,16 @@ import Avatar from '@mui/material/Avatar';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMusic } from '@fortawesome/free-solid-svg-icons';
-import PropTypes from 'prop-types';
 import style from '../trendingFeed.module.css';
+import { Author, Music } from '../../../domain/PostType';
 
-const PostInfo = function ({ author, desc, music }) {
+type Props = {
+    author: Author
+    desc: string
+    music: Music
+}
+
+const PostInfo = function ({ author, desc, music }: Props) {
     return (
         <div className={style.postInfo} data-testid="postInfo">
             <div className={style.authorPhoto}>
@@ -30,18 +36,6 @@ const PostInfo = function ({ author, desc, music }) {
             </div>
         </div>
     );
-};
-
-PostInfo.propTypes = {
-    author: PropTypes.object,
-    desc: PropTypes.string,
-    music: PropTypes.object,
-};
-
-PostInfo.defaultProps = {
-    author: {},
-    desc: '',
-    music: {},
 };
 
 export default PostInfo;

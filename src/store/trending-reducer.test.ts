@@ -1,9 +1,10 @@
 import trendingReducer, { setError, setTrendingFeed } from './trending-reducer';
 import {PostType} from "../domain/PostType";
+import {ErrorType} from "../domain/ErrorType";
 
 type State = {
     trendingFeed: Array<PostType> | null
-    error: Error | null
+    errors: ErrorType
 }
 
 describe('Test trendingReducer', () => {
@@ -11,21 +12,22 @@ describe('Test trendingReducer', () => {
     beforeEach(() => {
         state = {
             trendingFeed: null,
-            error: null,
+            errors: null,
         };
     });
     it('trendingFeed should be set in state and it must newTrendingFeed', () => {
         const newTrendingFeed: Array<PostType> = [
             {
+                id: 100,
                 author: {
                     uniqueId: 'id',
-                    avatarMedium: 'string',
-                    nickname: 'string',
+                    avatarMedium: 'src avatar',
+                    nickname: 'User',
                 },
-                desc: 'description',
+                desc: 'Description',
                 music: {
-                    title: 'string',
-                    authorName: 'string'
+                    title: 'Title',
+                    authorName: 'Author Name'
                 },
                 stats: {
                     diggCount: 10,
@@ -33,8 +35,8 @@ describe('Test trendingReducer', () => {
                     shareCount: 12,
                 },
                 video: {
-                    cover: 'string',
-                    playAddr: 'string',
+                    cover: 'src cover',
+                    playAddr: 'src video',
                 }
             },
         ];
@@ -45,9 +47,9 @@ describe('Test trendingReducer', () => {
     });
 
     it('the error should be set in state', () => {
-        const error = new Error('Some error');
-        const action = setError(error);
+        const errors = new Error('Some error');
+        const action = setError(errors);
         const newState = trendingReducer(state, action);
-        expect(newState.error).toBe(error);
+        expect(newState.errors).toBe(errors);
     });
 });

@@ -12,7 +12,7 @@ const instance = axios.create({
     headers: headersConfig,
 });
 
-const apiRequest = (urlParameter, options = '') => {
+const apiRequest = (urlParameter: string, options = '') => {
     const fullUrl = urlParameter + options;
     return instance.get(fullUrl).then((response) => response.data);
 };

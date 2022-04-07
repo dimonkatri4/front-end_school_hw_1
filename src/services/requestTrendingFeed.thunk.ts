@@ -1,16 +1,16 @@
 import getTrendingFeed from '../api/getTrendingFeed';
 import { setError, setTrendingFeed } from '../store/trending-reducer';
-// @ts-ignore
-const requestTrendingFeed = () => async (dispatch) => {
+import {Dispatch} from "redux";
+
+const requestTrendingFeed = () => async (dispatch: Dispatch) => {
     try {
         const data = await getTrendingFeed();
-        if (data.length === 0 || data === 'something went wrong, please try again' || data.error) {
-            dispatch(setError(data.error || 'Empty array trending feed'));
+        if (data.length === 0 || typeof data == 'string' ) {
+            dispatch(setError( 'Empty array trending feed'));
         } else {
             dispatch(setTrendingFeed(data));
         }
-    } catch (err) {
-        // @ts-ignore
+    } catch (err: any) {
         dispatch(setError(err.response.data.message));
     }
 };

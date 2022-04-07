@@ -2,10 +2,29 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Profile from './Profile';
 import requestTrendingFeed from '../../services/requestTrendingFeed.thunk';
 import requestUsersInfo from '../../services/requestUsersInfo.thunk';
+import {UserInfoType} from "../../domain/UserInfoType";
+import {PostType} from "../../domain/PostType";
+import {ErrorType} from "../../domain/ErrorType";
+import {AppStateType} from "../../store/store";
+
+type MapStatePropsType = {
+    profile: UserInfoType | null
+    isFetching: boolean
+    trending: PostType[] | null
+    errorTrend: ErrorType
+    errorUser: ErrorType
+    pageSize: number
+}
+
+type MapDispatchPropsType = {
+    requestUsersInfo: (id?: string) => void
+    requestTrendingFeed: () => void
+}
+
+type Props = MapStatePropsType & MapDispatchPropsType
 
 export const ProfileContainerComponent = function ({
     requestUsersInfo,
@@ -16,7 +35,7 @@ export const ProfileContainerComponent = function ({
     errorTrend,
     errorUser,
     pageSize,
-}) {
+}: Props) {
     const { userId } = useParams();
 
     useEffect(() => {
@@ -39,36 +58,17 @@ export const ProfileContainerComponent = function ({
     );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
     profile: state.users.userInfo,
     isFetching: state.users.isFetching,
     trending: state.trending.trendingFeed,
-    errorTrend: state.trending.error,
+    errorTrend: state.trending.errors,
     errorUser: state.users.requestError,
     pageSize: state.users.pageSize,
 });
 
-ProfileContainerComponent.propTypes = {
-    requestUsersInfo: PropTypes.func.isRequired,
-    requestTrendingFeed: PropTypes.func.isRequired,
-    profile: PropTypes.object,
-    isFetching: PropTypes.bool,
-    trending: PropTypes.array,
-    errorTrend: PropTypes.string,
-    errorUser: PropTypes.string,
-    pageSize: PropTypes.number.isRequired,
-};
-
-ProfileContainerComponent.defaultProps = {
-    profile: {},
-    isFetching: null,
-    trending: [],
-    errorTrend: '',
-    errorUser: '',
-};
-
 export default compose(
-    connect(mapStateToProps, {
+    connect<MapStatePropsType, MapDispatchPropsType, null, AppStateType>(mapStateToProps, {
         requestUsersInfo,
         requestTrendingFeed,
     })

@@ -1,4 +1,4 @@
-export type UserInfo = {
+export type UserInfoType = {
     avatarMedium: string
     nickname: string
     signature: string

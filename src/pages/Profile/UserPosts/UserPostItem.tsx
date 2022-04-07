@@ -1,15 +1,19 @@
 import React from 'react';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import PropTypes from 'prop-types';
 import style from '../profile.module.css';
 import editNumber from '../../../helpers/editNumber';
+import {PostType} from "../../../domain/PostType";
 
-const UserPostItem = function ({ post }) {
+type Props = {
+    post: PostType
+}
+
+const UserPostItem = function ({ post }: Props) {
     return (
         <div className={style.postItem} data-testid="postItem">
             <span>
-                <FontAwesomeIcon icon={faPlay} /> {editNumber(post.stats.playCount)}
+                <FontAwesomeIcon icon={faPlay} /> {editNumber(post.stats.diggCount)}
             </span>
             <video
                 controls
@@ -23,14 +27,6 @@ const UserPostItem = function ({ post }) {
             </video>
         </div>
     );
-};
-
-UserPostItem.propTypes = {
-    post: PropTypes.object,
-};
-
-UserPostItem.defaultProps = {
-    post: {},
 };
 
 export default UserPostItem;

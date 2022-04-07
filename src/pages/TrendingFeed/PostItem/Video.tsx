@@ -1,8 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {LegacyRef} from 'react';
 import style from '../trendingFeed.module.css';
+import {VideoType} from "../../../domain/PostType";
 
-const Video = function ({ video, videoRef }) {
+type Props = {
+    video: VideoType
+    videoRef: null | LegacyRef<HTMLVideoElement>
+}
+
+const Video = function ({ video, videoRef }: Props) {
     return (
         <div className={style.video}>
             <video ref={videoRef} controls poster={video.cover} loop muted data-testid="video">
@@ -11,16 +16,6 @@ const Video = function ({ video, videoRef }) {
             </video>
         </div>
     );
-};
-
-Video.propTypes = {
-    video: PropTypes.object,
-    videoRef: PropTypes.object,
-};
-
-Video.defaultProps = {
-    video: {},
-    videoRef: {},
 };
 
 export default Video;

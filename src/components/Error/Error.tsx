@@ -1,9 +1,10 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import style from './error.module.css';
+import {ErrorType} from "../../domain/ErrorType";
 
 type Props = {
-    errors: string[] | string
+    errors: ErrorType
 }
 
 const Error = function ({ errors }: Props) {

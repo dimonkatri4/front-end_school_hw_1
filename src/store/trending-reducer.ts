@@ -1,16 +1,18 @@
 import {PostType} from "../domain/PostType";
+import {ErrorType} from "../domain/ErrorType";
 
 const SET_TRENDING_FEED = '/trending/SET_TRENDING_FEED';
 const SET_ERROR = '/trending/SET_ERROR';
 
 type InitialStateType = {
     trendingFeed: Array<PostType> | null
-    error: Error | null
+    errors: ErrorType
 }
 
 const initialState: InitialStateType = {
     trendingFeed: null,
-    error: null
+    errors: null
+
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,7 +26,7 @@ const trendingReducer = (state = initialState, action: any): InitialStateType  =
         case SET_ERROR:
             return {
                 ...state,
-                error: action.error,
+                errors: action.error,
             };
         default:
             return state;
@@ -37,13 +39,13 @@ type setTrendingFeedType = {
 }
 type setErrorType = {
     type: typeof SET_ERROR
-    error: Error
+    error: ErrorType
 }
 
 export const setTrendingFeed = (trendingFeed: Array<PostType>): setTrendingFeedType => ({
     type: SET_TRENDING_FEED,
     trendingFeed,
 });
-export const setError = (error: Error): setErrorType => ({ type: SET_ERROR, error });
+export const setError = (error: ErrorType): setErrorType => ({ type: SET_ERROR, error });
 
 export default trendingReducer;

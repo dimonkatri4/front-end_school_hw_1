@@ -1,13 +1,14 @@
-import {UserInfo} from "../domain/UserInfo";
+import {UserInfoType} from "../domain/UserInfoType";
+import {ErrorType} from "../domain/ErrorType";
 
 const SET_USERS_INFO = '/users/SET_USERS_INFO';
 const TOGGLE_IS_FETCHING = 'users/TOGGLE_IS_FETCHING';
 const SET_REQUEST_ERROR = '/users/SET_REQUEST_ERROR';
 
 export type InitialStateUserType = {
-    userInfo: UserInfo | null
+    userInfo: UserInfoType | null
     isFetching: boolean
-    requestError: Error | null
+    requestError: ErrorType
     pageSize: number
 }
 
@@ -43,7 +44,7 @@ const usersReducer = (state = initialState, action: any): InitialStateUserType =
 
 type setUsersInfoType = {
     type: typeof SET_USERS_INFO
-    userInfo: UserInfo
+    userInfo: UserInfoType
 }
 type toggleIsFetchingType = {
     type: typeof TOGGLE_IS_FETCHING
@@ -51,14 +52,14 @@ type toggleIsFetchingType = {
 }
 type setRequestErrorType = {
     type: typeof SET_REQUEST_ERROR
-    error: Error
+    error: ErrorType
 }
 
-export const setUsersInfo = (userInfo: UserInfo): setUsersInfoType => ({ type: SET_USERS_INFO, userInfo })
+export const setUsersInfo = (userInfo: UserInfoType): setUsersInfoType => ({ type: SET_USERS_INFO, userInfo })
 export const toggleIsFetching = (isFetching:boolean): toggleIsFetchingType => ({
     type: TOGGLE_IS_FETCHING,
     isFetching,
 });
-export const setRequestError = (error:Error): setRequestErrorType => ({ type: SET_REQUEST_ERROR, error });
+export const setRequestError = (error:ErrorType): setRequestErrorType => ({ type: SET_REQUEST_ERROR, error });
 
 export default usersReducer;

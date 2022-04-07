@@ -15,15 +15,16 @@ export type Status = {
     shareCount: number
 }
 
-export type Video = {
+export type VideoType = {
     cover: string
     playAddr: string
 }
 
 export type PostType = {
+    id: number
     author: Author
     desc: string
     music: Music
     stats: Status
-    video: Video
+    video: VideoType
 }
