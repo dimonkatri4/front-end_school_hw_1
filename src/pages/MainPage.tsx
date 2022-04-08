@@ -9,9 +9,10 @@ const MainPage = function () {
         <div className="mainContent">
             <Routes>
                 <Route path="/" element={<Navigate to="/profile" />} />
-                <Route path="/trends" element={<TrendingFeedContainer />} />
+                <Route path="/trends" element={<TrendingFeedContainer />}/>
                 <Route path="/profile/" element={<ProfileContainer />} />
                 <Route path="/profile/:userId" element={<ProfileContainer />} />
+                <Route path="*" element={<>"404"</>} />
             </Routes>
         </div>
     );

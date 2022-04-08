@@ -1,30 +1,10 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import {connect, ConnectedProps} from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Profile from './Profile';
 import requestTrendingFeed from '../../services/requestTrendingFeed.thunk';
 import requestUsersInfo from '../../services/requestUsersInfo.thunk';
-import {UserInfoType} from "../../domain/UserInfoType";
-import {PostType} from "../../domain/PostType";
-import {ErrorType} from "../../domain/ErrorType";
 import {AppStateType} from "../../store/store";
-
-type MapStatePropsType = {
-    profile: UserInfoType | null
-    isFetching: boolean
-    trending: PostType[] | null
-    errorTrend: ErrorType
-    errorUser: ErrorType
-    pageSize: number
-}
-
-type MapDispatchPropsType = {
-    requestUsersInfo: (id?: string) => void
-    requestTrendingFeed: () => void
-}
-
-type Props = MapStatePropsType & MapDispatchPropsType
 
 export const ProfileContainerComponent = function ({
     requestUsersInfo,
@@ -35,7 +15,7 @@ export const ProfileContainerComponent = function ({
     errorTrend,
     errorUser,
     pageSize,
-}: Props) {
+}: PropsFromRedux) {
     const { userId } = useParams();
 
     useEffect(() => {
@@ -58,7 +38,7 @@ export const ProfileContainerComponent = function ({
     );
 };
 
-const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
+const mapStateToProps = (state: AppStateType) => ({
     profile: state.users.userInfo,
     isFetching: state.users.isFetching,
     trending: state.trending.trendingFeed,
@@ -67,9 +47,6 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
     pageSize: state.users.pageSize,
 });
 
-export default compose(
-    connect<MapStatePropsType, MapDispatchPropsType, null, AppStateType>(mapStateToProps, {
-        requestUsersInfo,
-        requestTrendingFeed,
-    })
-)(ProfileContainerComponent);
+const connector = connect(mapStateToProps, {requestUsersInfo, requestTrendingFeed});
+type PropsFromRedux = ConnectedProps<typeof connector>;
+export default connector(ProfileContainerComponent);
