@@ -15,8 +15,7 @@ const initialState: InitialStateType = {
 
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const trendingReducer = (state = initialState, action: any): InitialStateType  => {
+const trendingReducer = (state = initialState, action: ActionTypeTrendingReducer): InitialStateType  => {
     switch (action.type) {
         case SET_TRENDING_FEED:
             return {
@@ -33,19 +32,21 @@ const trendingReducer = (state = initialState, action: any): InitialStateType  =
     }
 };
 
-type setTrendingFeedType = {
+type SetTrendingFeedType = {
     type: typeof SET_TRENDING_FEED
     trendingFeed: Array<PostType>
 }
-type setErrorType = {
+type SetErrorType = {
     type: typeof SET_ERROR
     error: ErrorType
 }
 
-export const setTrendingFeed = (trendingFeed: Array<PostType>): setTrendingFeedType => ({
+export type ActionTypeTrendingReducer = SetTrendingFeedType | SetErrorType;
+
+export const setTrendingFeed = (trendingFeed: Array<PostType>): SetTrendingFeedType => ({
     type: SET_TRENDING_FEED,
     trendingFeed,
 });
-export const setError = (error: ErrorType): setErrorType => ({ type: SET_ERROR, error });
+export const setError = (error: ErrorType): SetErrorType => ({ type: SET_ERROR, error });
 
 export default trendingReducer;

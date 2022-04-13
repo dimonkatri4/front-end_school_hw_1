@@ -1,9 +1,11 @@
 import apiRequest from './api';
 import {UserInfoType} from "../domain/UserInfoType";
 
-const getUserInfo = async (id = 'dave.xp'): Promise<UserInfoType | string> => {
+type GetUserInfo = UserInfoType | string;
+
+const getUserInfo = async (id = 'dave.xp') => {
     const urlParameter = 'user/info/';
-    const userInfo = await apiRequest(urlParameter, id);
+    const userInfo = await apiRequest<GetUserInfo>(urlParameter, id);
     return userInfo;
 };
 

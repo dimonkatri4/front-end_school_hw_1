@@ -1,8 +1,9 @@
 import getTrendingFeed from '../api/getTrendingFeed';
-import { setError, setTrendingFeed } from '../store/trending-reducer';
-import {Dispatch} from "redux";
+import {ActionTypeTrendingReducer, setError, setTrendingFeed} from '../store/trending-reducer';
+import {ThunkAction} from "redux-thunk";
+import {AppStateType} from "../store/store";
 
-const requestTrendingFeed = () => async (dispatch: Dispatch) => {
+const requestTrendingFeed = (): ThunkAction<Promise<void>, AppStateType, unknown, ActionTypeTrendingReducer> => async (dispatch) => {
     try {
         const data = await getTrendingFeed();
         if (data.length === 0 || typeof data == 'string' ) {

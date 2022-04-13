@@ -1,9 +1,11 @@
 import apiRequest from './api';
 import {PostType} from "../domain/PostType";
 
-const getTrendingFeed = async (): Promise<PostType[] | string> => {
+type TrendingFeedType = PostType[] | string;
+
+const getTrendingFeed = async () => {
     const urlParameter = 'trending/feed';
-    const trendingFeed = await apiRequest(urlParameter);
+    const trendingFeed = await apiRequest<TrendingFeedType>(urlParameter);
     return trendingFeed;
 };
 

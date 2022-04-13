@@ -12,9 +12,9 @@ const instance = axios.create({
     headers: headersConfig,
 });
 
-const apiRequest = (urlParameter: string, options = '') => {
+function apiRequest<T> (urlParameter: string, options = '') {
     const fullUrl = urlParameter + options;
-    return instance.get(fullUrl).then((response) => response.data);
+    return instance.get<T>(fullUrl).then((response) => response.data);
 };
 
 export default apiRequest;

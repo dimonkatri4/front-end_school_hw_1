@@ -1,8 +1,10 @@
 import getUserInfo from '../api/getUserInfo';
-import { setRequestError, setUsersInfo, toggleIsFetching } from '../store/users-reducer';
-import {Dispatch} from "redux";
+import {ActionTypeUsersReducer, setRequestError, setUsersInfo, toggleIsFetching} from '../store/users-reducer';
+import {ThunkAction} from "redux-thunk";
+import {AppStateType} from "../store/store";
 
-const requestUsersInfo = (id?: string) => async (dispatch: Dispatch) => {
+const requestUsersInfo = (id?: string): ThunkAction<Promise<void>, AppStateType, unknown, ActionTypeUsersReducer> =>
+    async (dispatch) => {
     try {
         dispatch(toggleIsFetching(true));
         const data = await getUserInfo(id);
