@@ -1,4 +1,4 @@
-import {PostType} from "../domain/PostType";
+import { PostType } from '../domain/PostType';
 
 export const getPortionPage = (postArray: PostType[], pageSize: number) => {
     const subarray = [];
@@ -8,4 +8,5 @@ export const getPortionPage = (postArray: PostType[], pageSize: number) => {
     return subarray;
 };
 
-export const getPageCount = (postArray: PostType[], pageSize: number) => Math.ceil(postArray.length / pageSize);
+export const getPageCount = (postArray: PostType[], pageSize: number) =>
+    Math.ceil(postArray.length / pageSize);

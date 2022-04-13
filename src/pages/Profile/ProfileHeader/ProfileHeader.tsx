@@ -5,8 +5,8 @@ import { UserInfoType } from '../../../domain/UserInfoType';
 import UserInfo from './UserInfo';
 
 type Props = {
-    profile: UserInfoType
-}
+    profile: UserInfoType,
+};
 
 const ProfileHeader = function ({ profile }: Props) {
     return (

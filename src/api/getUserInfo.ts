@@ -1,5 +1,5 @@
 import apiRequest from './api';
-import {UserInfoType} from "../domain/UserInfoType";
+import { UserInfoType } from '../domain/UserInfoType';
 
 type GetUserInfo = UserInfoType | string;
 

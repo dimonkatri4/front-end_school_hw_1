@@ -3,8 +3,8 @@ import Avatar from '@mui/material/Avatar';
 import style from '../profile.module.css';
 
 type Props = {
-    avatar: string
-}
+    avatar: string,
+};
 
 const UserAvatar = function ({ avatar }: Props) {
     return (

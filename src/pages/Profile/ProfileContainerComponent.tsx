@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import {connect, ConnectedProps} from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Profile from './Profile';
 import requestTrendingFeed from '../../services/requestTrendingFeed.thunk';
 import requestUsersInfo from '../../services/requestUsersInfo.thunk';
-import {AppStateType} from "../../store/store";
+import { AppStateType } from '../../store/store';
 
 export const ProfileContainerComponent = function ({
     requestUsersInfo,
@@ -47,6 +47,6 @@ const mapStateToProps = (state: AppStateType) => ({
     pageSize: state.users.pageSize,
 });
 
-const connector = connect(mapStateToProps, {requestUsersInfo, requestTrendingFeed});
+const connector = connect(mapStateToProps, { requestUsersInfo, requestTrendingFeed });
 type PropsFromRedux = ConnectedProps<typeof connector>;
 export default connector(ProfileContainerComponent);

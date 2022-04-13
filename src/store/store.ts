@@ -8,7 +8,6 @@ const rootReducers = combineReducers({
     trending: trendingReducer,
 });
 
-
 type RootReducerType = typeof rootReducers;
 export type AppStateType = ReturnType<RootReducerType>;
 

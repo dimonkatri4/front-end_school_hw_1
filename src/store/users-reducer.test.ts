@@ -12,21 +12,19 @@ describe('User reducer', () => {
             userInfo: null,
             isFetching: false,
             requestError: null,
-            pageSize: 6
+            pageSize: 6,
         };
     });
 
     it('userInfo should be set in state and it must be object newUserInfo', () => {
-        const newUserInfo =
-            {
-                avatarMedium: 'string',
-                nickname: 'string',
-                signature: 'string',
-                relation: 10,
-                duetSetting: 11,
-                stitchSetting: 12,
-            }
-        ;
+        const newUserInfo = {
+            avatarMedium: 'string',
+            nickname: 'string',
+            signature: 'string',
+            relation: 10,
+            duetSetting: 11,
+            stitchSetting: 12,
+        };
         const action = setUsersInfo(newUserInfo);
         const newState = usersReducer(state, action);
         expect(typeof newState.userInfo).toBe('object');

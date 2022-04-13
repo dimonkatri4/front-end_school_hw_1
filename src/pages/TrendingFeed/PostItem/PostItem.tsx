@@ -4,24 +4,24 @@ import style from '../trendingFeed.module.css';
 import PostInfo from './PostInfo';
 import Video from './Video';
 import ActionBar from './ActionBar';
-import {PostType} from "../../../domain/PostType";
+import { PostType } from '../../../domain/PostType';
 
 type Props = {
-    post: PostType
-}
+    post: PostType,
+};
 
 const PostItem = function ({ post }: Props) {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
-        if (!videoRef.current) throw Error("videoRef is not assigned");
+        if (!videoRef.current) throw Error('videoRef is not assigned');
         const options = {
             rootMargin: '0px',
             threshold: [0.25, 0.75],
         };
         const handlePlay = (entries: IntersectionObserverEntry[]): void => {
             entries.forEach((entry) => {
-                if (!videoRef.current) throw Error("videoRef is not assigned");
+                if (!videoRef.current) throw Error('videoRef is not assigned');
                 if (entry.isIntersecting) {
                     videoRef.current.play();
                 } else {

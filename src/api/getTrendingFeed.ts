@@ -1,5 +1,5 @@
 import apiRequest from './api';
-import {PostType} from "../domain/PostType";
+import { PostType } from '../domain/PostType';
 
 type TrendingFeedType = PostType[] | string;
 

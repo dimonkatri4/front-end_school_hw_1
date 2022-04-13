@@ -44,8 +44,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.js src/**/*.jsx",
-    "prettier": "prettier -w src/**/*.js src/**/*.jsx"
+    "lint": "eslint src/**/*.js src/**/*.jsx src/**/*.tsx src/**/*.ts",
+    "prettier": "prettier -w src/**/*.js src/**/*.jsx src/**/*.tsx src/**/*.ts"
   },
   "eslintConfig": {
     "extends": [

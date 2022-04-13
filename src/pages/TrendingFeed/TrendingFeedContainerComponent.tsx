@@ -1,15 +1,19 @@
-import React, {useEffect} from 'react';
-import {connect, ConnectedProps} from 'react-redux';
+import React, { useEffect } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
 import TrendingFeed from './TrendingFeed';
 import requestTrendingFeed from '../../services/requestTrendingFeed.thunk';
-import {AppStateType} from "../../store/store";
+import { AppStateType } from '../../store/store';
 
-export const TrendingFeedContainerComponent = function ({requestTrendingFeed, trending, error}: PropsFromRedux) {
+export const TrendingFeedContainerComponent = function ({
+    requestTrendingFeed,
+    trending,
+    error,
+}: PropsFromRedux) {
     useEffect(() => {
         requestTrendingFeed();
     }, []);
 
-    return <TrendingFeed trending={trending} error={error}/>;
+    return <TrendingFeed trending={trending} error={error} />;
 };
 
 const mapStateToProps = (state: AppStateType) => ({
@@ -17,7 +21,6 @@ const mapStateToProps = (state: AppStateType) => ({
     error: state.trending.errors,
 });
 
-const connector = connect(mapStateToProps, {requestTrendingFeed});
+const connector = connect(mapStateToProps, { requestTrendingFeed });
 type PropsFromRedux = ConnectedProps<typeof connector>;
-export default connector(TrendingFeedContainerComponent)
-
+export default connector(TrendingFeedContainerComponent);

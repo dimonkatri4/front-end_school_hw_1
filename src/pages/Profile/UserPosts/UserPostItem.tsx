@@ -3,11 +3,11 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import style from '../profile.module.css';
 import editNumber from '../../../helpers/editNumber';
-import {PostType} from "../../../domain/PostType";
+import { PostType } from '../../../domain/PostType';
 
 type Props = {
-    post: PostType
-}
+    post: PostType,
+};
 
 const UserPostItem = function ({ post }: Props) {
     return (

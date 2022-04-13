@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment, faHeart, faShare } from '@fortawesome/free-solid-svg-icons';
 import style from '../trendingFeed.module.css';
 import editNumber from '../../../helpers/editNumber';
-import {Status} from "../../../domain/PostType";
+import { Status } from '../../../domain/PostType';
 
 type Props = {
-    stats: Status
-}
+    stats: Status,
+};
 
 const ActionBar = function ({ stats }: Props) {
     return (

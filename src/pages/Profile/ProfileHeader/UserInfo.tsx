@@ -1,10 +1,10 @@
 import React from 'react';
 import style from '../profile.module.css';
-import {UserInfoType} from "../../../domain/UserInfoType";
+import { UserInfoType } from '../../../domain/UserInfoType';
 
 type Props = {
-    profile: UserInfoType
-}
+    profile: UserInfoType,
+};
 
 const UserInfo = function ({ profile }: Props) {
     return (
