@@ -24,12 +24,13 @@ module.exports = {
     },
     plugins: ['react', '@typescript-eslint'],
     rules: {
-        'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+        'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx', '.ts',] }],
         'func-names': ['error', 'as-needed'],
         'react/forbid-prop-types': ['off'],
         'default-param-last': ['off'],
         'no-unused-expressions': ['error', { allowTernary: true }],
         'no-shadow': ['error', { allow: ['requestTrendingFeed', 'requestUsersInfo'] }],
-        "import/extensions": [0]
+        "import/extensions": [0],
+        "no-use-before-define": ['off']
     },
 };

@@ -18,7 +18,7 @@ type Props = {
 }
 
 const Profile = function ({ profile, isFetching, trending, errorTrend, errorUser, pageSize }: Props) {
-    let errors = errorTrend || errorUser
+    const errors = errorTrend || errorUser
     if (errors) {
         return <Error errors={errors} data-testid="error" />;
     }
