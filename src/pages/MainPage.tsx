@@ -12,6 +12,7 @@ const MainPage = function () {
                 <Route path="/trends" element={<TrendingFeedContainer />} />
                 <Route path="/profile/" element={<ProfileContainer />} />
                 <Route path="/profile/:userId" element={<ProfileContainer />} />
+                <Route path="*" element={<>404</>} />
             </Routes>
         </div>
     );

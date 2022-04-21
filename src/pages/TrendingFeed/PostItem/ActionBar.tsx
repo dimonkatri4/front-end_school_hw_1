@@ -1,11 +1,15 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment, faHeart, faShare } from '@fortawesome/free-solid-svg-icons';
-import PropTypes from 'prop-types';
 import style from '../trendingFeed.module.css';
 import editNumber from '../../../helpers/editNumber';
+import { Status } from '../../../domain/PostType';
 
-const ActionBar = function ({ stats }) {
+type Props = {
+    stats: Status,
+};
+
+const ActionBar = function ({ stats }: Props) {
     return (
         <div className={style.actionBar} data-testid="actionBar">
             <div className={style.item}>
@@ -19,14 +23,6 @@ const ActionBar = function ({ stats }) {
             </div>
         </div>
     );
-};
-
-ActionBar.propTypes = {
-    stats: PropTypes.object,
-};
-
-ActionBar.defaultProps = {
-    stats: {},
 };
 
 export default ActionBar;

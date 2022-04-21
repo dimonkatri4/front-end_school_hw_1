@@ -1,8 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import style from '../profile.module.css';
+import { UserInfoType } from '../../../domain/UserInfoType';
 
-const UserInfo = function ({ profile }) {
+type Props = {
+    profile: UserInfoType,
+};
+
+const UserInfo = function ({ profile }: Props) {
     return (
         <div className={style.userInfo} data-testid="userInfo">
             <div className={style.nickname}>{profile.nickname}</div>
@@ -23,14 +27,6 @@ const UserInfo = function ({ profile }) {
             </div>
         </div>
     );
-};
-
-UserInfo.propTypes = {
-    profile: PropTypes.object,
-};
-
-UserInfo.defaultProps = {
-    profile: {},
 };
 
 export default UserInfo;

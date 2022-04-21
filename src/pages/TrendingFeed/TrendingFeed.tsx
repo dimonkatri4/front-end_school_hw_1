@@ -1,11 +1,17 @@
 import React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
-import PropTypes from 'prop-types';
 import style from './trendingFeed.module.css';
 import Error from '../../components/Error/Error';
 import PostItem from './PostItem/PostItem';
+import {ErrorType} from "../../domain/ErrorType";
+import {PostType} from "../../domain/PostType";
 
-const TrendingFeed = function ({ trending, error }) {
+type Props ={
+    trending: PostType[] | null
+    error: ErrorType | null
+}
+
+const TrendingFeed = function ({ trending, error }: Props) {
     if (error) {
         return <Error errors={error} />;
     }
@@ -24,16 +30,6 @@ const TrendingFeed = function ({ trending, error }) {
             ))}
         </div>
     );
-};
-
-TrendingFeed.propTypes = {
-    trending: PropTypes.array,
-    error: PropTypes.string,
-};
-
-TrendingFeed.defaultProps = {
-    trending: [],
-    error: '',
 };
 
 export default TrendingFeed;
