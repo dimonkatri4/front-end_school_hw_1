@@ -1,6 +1,3 @@
-import { userAPI } from '../api/api';
-import userFeedData from '../json/user-feed.json';
-
 const SET_USERS_FEED = '/users/SET_USERS_FEED';
 const SET_USERS_INFO = '/users/SET_USERS_INFO';
 const TOGGLE_IS_FETCHING = 'users/TOGGLE_IS_FETCHING';
@@ -11,6 +8,7 @@ const initialState = {
     userInfo: null,
     isFetching: false,
     requestError: null,
+    pageSize: 6,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -28,7 +26,7 @@ const usersReducer = (state = initialState, action) => {
         case TOGGLE_IS_FETCHING:
             return {
                 ...state,
-                isFetching: action.error,
+                isFetching: action.isFetching,
             };
         case SET_REQUEST_ERROR:
             return {
@@ -47,32 +45,5 @@ export const toggleIsFetching = (isFetching) => ({
     isFetching,
 });
 export const setRequestError = (error) => ({ type: SET_REQUEST_ERROR, error });
-
-// In case the data came from the server correctly
-/* export const requestUsersFeed = (id) => async (dispatch) => {
-    dispatch(toggleIsFetching(true));
-    const data = await userAPI.getUserFeed(id);
-    dispatch(toggleIsFetching(false));
-    dispatch(setUsersFeed(data));
-} */
-
-export const requestUsersFeed = () => (dispatch) => {
-    const data = userFeedData;
-    dispatch(setUsersFeed(data));
-};
-
-export const requestUsersInfo = (id) => async (dispatch) => {
-    dispatch(toggleIsFetching(true));
-    try {
-        const data = await userAPI.getUserInfo(id);
-        if (!Object.keys(data).length) {
-            dispatch(setRequestError('Empty object in userInfo'));
-        }
-        dispatch(toggleIsFetching(false));
-        dispatch(setUsersInfo(data));
-    } catch (error) {
-        dispatch(setRequestError(error.response.data.message));
-    }
-};
 
 export default usersReducer;

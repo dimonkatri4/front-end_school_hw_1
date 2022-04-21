@@ -11,17 +11,10 @@ const instance = axios.create({
     withCredentials: true,
     headers: headersConfig,
 });
-export const userAPI = {
-    getUserFeed(id = 'dave.xp') {
-        return instance.get(`user/feed/${id}`).then((response) => response.data);
-    },
-    getUserInfo(id = 'dave.xp') {
-        return instance.get(`user/info/${id}`).then((response) => response.data);
-    },
+
+const apiRequest = (urlParameter, options = '') => {
+    const fullUrl = urlParameter + options;
+    return instance.get(fullUrl).then((response) => response.data);
 };
 
-export const trendingAPI = {
-    getTrendingFeed() {
-        return instance.get('trending/feed').then((response) => response.data);
-    },
-};
+export default apiRequest;

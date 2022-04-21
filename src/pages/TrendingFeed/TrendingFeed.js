@@ -2,8 +2,8 @@ import React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import PropTypes from 'prop-types';
 import style from './trendingFeed.module.css';
-import Error from '../../Error/Error';
-import Post from './Post';
+import Error from '../../components/Error/Error';
+import PostItem from './PostItem/PostItem';
 
 const TrendingFeed = function ({ trending, error }) {
     if (error) {
@@ -12,15 +12,15 @@ const TrendingFeed = function ({ trending, error }) {
 
     if (!trending) {
         return (
-            <div>
+            <div data-testid="preloader">
                 <CircularProgress />
             </div>
         );
     }
     return (
-        <div className={style.trendingPage}>
+        <div className={style.trendingPage} data-testid="trendingPage">
             {trending.map((t) => (
-                <Post post={t} key={t.id} />
+                <PostItem post={t} key={t.id} />
             ))}
         </div>
     );

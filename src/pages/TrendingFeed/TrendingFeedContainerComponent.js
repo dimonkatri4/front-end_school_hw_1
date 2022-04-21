@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import TrendingFeed from './TrendingFeed';
-import { requestTrendingFeed } from '../../../redux/trending-reducer';
+import requestTrendingFeed from '../../services/requestTrendingFeed.thunk';
 
-const TrendingFeedContainer = function ({ requestTrendingFeed, trending, error }) {
+export const TrendingFeedContainerComponent = function ({ requestTrendingFeed, trending, error }) {
     useEffect(() => {
         requestTrendingFeed();
     }, []);
@@ -17,15 +17,15 @@ const mapStateToProps = (state) => ({
     error: state.trending.error,
 });
 
-TrendingFeedContainer.propTypes = {
+TrendingFeedContainerComponent.propTypes = {
     requestTrendingFeed: PropTypes.func.isRequired,
     trending: PropTypes.array,
     error: PropTypes.string,
 };
 
-TrendingFeedContainer.defaultProps = {
+TrendingFeedContainerComponent.defaultProps = {
     trending: [],
     error: '',
 };
 
-export default connect(mapStateToProps, { requestTrendingFeed })(TrendingFeedContainer);
+export default connect(mapStateToProps, { requestTrendingFeed })(TrendingFeedContainerComponent);

@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { requestUsersFeed, requestUsersInfo } from '../../../redux/users-reducer';
 import Profile from './Profile';
-import { requestTrendingFeed } from '../../../redux/trending-reducer';
+import requestTrendingFeed from '../../services/requestTrendingFeed.thunk';
+import requestUsersInfo from '../../services/requestUsersInfo.thunk';
 
-const ProfileContainer = function ({
+export const ProfileContainerComponent = function ({
     requestUsersInfo,
     requestTrendingFeed,
     profile,
@@ -15,6 +15,7 @@ const ProfileContainer = function ({
     trending,
     errorTrend,
     errorUser,
+    pageSize,
 }) {
     const { userId } = useParams();
 
@@ -26,11 +27,6 @@ const ProfileContainer = function ({
         requestTrendingFeed();
     }, []);
 
-    // In case the data came from the server correctly
-    /*    useEffect(()=> {
-        userId ? props.requestUsersFeed(userId) : props.requestUsersFeed()
-    },[]) */
-
     return (
         <Profile
             profile={profile}
@@ -38,6 +34,7 @@ const ProfileContainer = function ({
             trending={trending}
             errorTrend={errorTrend}
             errorUser={errorUser}
+            pageSize={pageSize}
         />
     );
 };
@@ -48,19 +45,21 @@ const mapStateToProps = (state) => ({
     trending: state.trending.trendingFeed,
     errorTrend: state.trending.error,
     errorUser: state.users.requestError,
+    pageSize: state.users.pageSize,
 });
 
-ProfileContainer.propTypes = {
+ProfileContainerComponent.propTypes = {
     requestUsersInfo: PropTypes.func.isRequired,
     requestTrendingFeed: PropTypes.func.isRequired,
-    profile: PropTypes.array,
+    profile: PropTypes.object,
     isFetching: PropTypes.bool,
     trending: PropTypes.array,
     errorTrend: PropTypes.string,
     errorUser: PropTypes.string,
+    pageSize: PropTypes.number.isRequired,
 };
 
-ProfileContainer.defaultProps = {
+ProfileContainerComponent.defaultProps = {
     profile: {},
     isFetching: null,
     trending: [],
@@ -71,7 +70,6 @@ ProfileContainer.defaultProps = {
 export default compose(
     connect(mapStateToProps, {
         requestUsersInfo,
-        requestUsersFeed,
         requestTrendingFeed,
     })
-)(ProfileContainer);
+)(ProfileContainerComponent);
