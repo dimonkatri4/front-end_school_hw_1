@@ -28,6 +28,11 @@ describe('ProfileContainer component', () => {
                 requestUsersInfo={requestUsersInfoMock}
                 requestTrendingFeed={requestTrendingFeed}
                 pageSize={6}
+                isFetching={false}
+                errorUser={null}
+                trending={null}
+                errorTrend={null}
+                profile={null}
             />
         );
         expect(requestTrendingFeed).toBeCalledTimes(1);
@@ -39,6 +44,11 @@ describe('ProfileContainer component', () => {
                 requestUsersInfo={requestUsersInfoMock}
                 requestTrendingFeed={requestTrendingFeed}
                 pageSize={6}
+                isFetching={false}
+                errorUser={null}
+                trending={null}
+                errorTrend={null}
+                profile={null}
             />
         );
         expect(requestUsersInfoMock).toBeCalledTimes(1);

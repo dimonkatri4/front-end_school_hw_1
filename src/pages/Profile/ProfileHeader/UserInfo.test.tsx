@@ -1,14 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import UserInfo from './UserInfo';
+import { profileTestData } from '../../../mocks/testData';
 
-const profile = {
-    nickname: 'User nickname',
-    signature: 'Signature',
-    relation: '10',
-    duetSetting: '20',
-    stitchSetting: '30',
-};
+const profile = profileTestData;
 
 describe('UserInfo component', () => {
     it('UserInfo render', () => {

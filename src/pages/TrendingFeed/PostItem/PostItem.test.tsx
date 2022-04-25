@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 import PostItem from './PostItem';
+import { trendingTestData } from '../../../mocks/testData';
 
 jest.mock(
     './Video',
@@ -20,9 +21,7 @@ beforeEach(() => {
     window.IntersectionObserver = mockIntersectionObserver;
 });
 
-const post = {
-    post1: {},
-};
+const post = trendingTestData[0];
 
 describe('PostItem component', () => {
     it('PostItem render', () => {

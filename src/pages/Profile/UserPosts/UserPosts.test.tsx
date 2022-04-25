@@ -1,12 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 import UserPosts from './UserPosts';
+import {trendingTestData} from "../../../mocks/testData";
 
-const trending = [
-    { trend1: {}, id: 1 },
-    { trend2: {}, id: 2 },
-    { trend3: {}, id: 3 },
-];
+const trending = trendingTestData;
 const pageSize = 6;
 
 jest.mock(

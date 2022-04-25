@@ -1,12 +1,12 @@
-import getUserInfo from './getUserInfo';
+import getUserFeed from './getUserFeed';
 import apiRequest from './api';
 
 jest.mock('./api');
 
-describe('getUserInfo function', () => {
-    apiRequest.mockReturnValue(jest.fn());
+describe('getUserFeed function', () => {
+    (apiRequest as jest.Mock).mockReturnValue(jest.fn());
     it('apiRequest must be called once with the set parameters and return the value', async () => {
-        await getUserInfo();
+        await getUserFeed();
         expect(apiRequest).toBeCalledTimes(1);
         expect(apiRequest).toHaveBeenCalledWith('user/info/', 'dave.xp');
         expect(apiRequest).toHaveReturned();

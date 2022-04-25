@@ -7,7 +7,11 @@ jest.mock('./../../store/trending-reducer');
 describe('TrendingFeedContainer component', () => {
     it('function requestTrendingFeedMock must be called once when rendering a component', () => {
         const requestTrendingFeedMock = jest.fn();
-        render(<TrendingFeedContainerComponent requestTrendingFeed={requestTrendingFeedMock} />);
+        render(<TrendingFeedContainerComponent
+            requestTrendingFeed={requestTrendingFeedMock}
+            trending={null}
+            error={null}
+        />);
         expect(requestTrendingFeedMock).toBeCalledTimes(1);
     });
 });
