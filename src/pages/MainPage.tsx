@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Navigate } from 'react-router';
-import ProfileContainer from './Profile/ProfileContainerComponent';
-import TrendingFeedContainer from './TrendingFeed/TrendingFeedContainerComponent';
+import TrendingFeedContainer from './TrendingFeed/TrendingFeedContainer';
+import ProfileContainer from "./Profile/ProfileContainer";
 
 const MainPage = function () {
     return (
@@ -10,7 +10,7 @@ const MainPage = function () {
             <Routes>
                 <Route path="/" element={<Navigate to="/profile" />} />
                 <Route path="/trends" element={<TrendingFeedContainer />} />
-                <Route path="/profile/" element={<ProfileContainer />} />
+                <Route path="/profile" element={<ProfileContainer />} />
                 <Route path="/profile/:userId" element={<ProfileContainer />} />
                 <Route path="*" element={<>404</>} />
             </Routes>
