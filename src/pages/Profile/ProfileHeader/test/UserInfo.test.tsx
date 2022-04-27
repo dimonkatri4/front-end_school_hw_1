@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import UserInfo from './UserInfo';
-import { profileTestData } from '../../../mocks/testData';
+import UserInfo from '../UserInfo';
+import { profileTestData } from '../../../../mocks/testData';
 
 const profile = profileTestData;
 

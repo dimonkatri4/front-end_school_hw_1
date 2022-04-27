@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
-import PostInfo from './PostInfo';
+import PostInfo from '../PostInfo';
 
 const author = {
     uniqueId: '123',

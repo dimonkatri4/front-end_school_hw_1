@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { trendingTestData } from '../../../mocks/testData';
-import UserPostItem from './UserPostItem';
+import { trendingTestData } from '../../../../mocks/testData';
+import UserPostItem from '../UserPostItem';
 
 const post = trendingTestData[0];
 

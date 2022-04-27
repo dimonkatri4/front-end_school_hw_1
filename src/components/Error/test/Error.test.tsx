@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Error from './Error';
+import Error from '../Error';
 
 const errorString = 'Some error';
 const errorArray = ['e1', 'e2'];

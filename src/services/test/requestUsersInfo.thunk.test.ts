@@ -1,7 +1,7 @@
-import getUserInfo from '../api/getUserInfo';
-import { setRequestError, setUsersInfo, toggleIsFetching } from '../store/users-reducer';
-import requestUsersInfo from './requestUsersInfo.thunk';
-import {profileTestData} from "../mocks/testData";
+import getUserInfo from '../../api/getUserInfo';
+import { setRequestError, setUsersInfo, toggleIsFetching } from '../../store/users-reducer';
+import requestUsersInfo from '../requestUsersInfo.thunk';
+import {profileTestData} from "../../mocks/testData";
 
 jest.mock('../api/getUserInfo');
 

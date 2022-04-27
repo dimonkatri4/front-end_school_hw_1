@@ -1,4 +1,4 @@
-import editNumber from './editNumber';
+import editNumber from '../editNumber';
 
 describe('editNumber helper function', () => {
     it('when the input parameter is equal to 999000', () => {

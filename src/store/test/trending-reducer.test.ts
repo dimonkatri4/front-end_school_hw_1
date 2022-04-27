@@ -1,6 +1,6 @@
-import trendingReducer, { setError, setTrendingFeed } from './trending-reducer';
-import {PostType} from "../domain/PostType";
-import {ErrorType} from "../domain/ErrorType";
+import trendingReducer, { setError, setTrendingFeed } from '../trending-reducer';
+import {PostType} from "../../domain/PostType";
+import {ErrorType} from "../../domain/ErrorType";
 
 type State = {
     trendingFeed: Array<PostType> | null

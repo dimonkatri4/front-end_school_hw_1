@@ -3,7 +3,7 @@ import usersReducer, {
     setRequestError,
     setUsersInfo,
     toggleIsFetching,
-} from './users-reducer';
+} from '../users-reducer';
 
 describe('User reducer', () => {
     let state: InitialStateUserType;

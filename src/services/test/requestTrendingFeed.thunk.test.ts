@@ -1,7 +1,7 @@
-import getTrendingFeed from '../api/getTrendingFeed';
-import { setError, setTrendingFeed } from '../store/trending-reducer';
-import requestTrendingFeed from './requestTrendingFeed.thunk';
-import {trendingTestData} from "../mocks/testData";
+import getTrendingFeed from '../../api/getTrendingFeed';
+import { setError, setTrendingFeed } from '../../store/trending-reducer';
+import requestTrendingFeed from '../requestTrendingFeed.thunk';
+import {trendingTestData} from "../../mocks/testData";
 
 jest.mock('../api/getTrendingFeed');
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import TrendingFeed from './TrendingFeed';
-import {trendingTestData} from "../../mocks/testData";
+import TrendingFeed from '../TrendingFeed';
+import {trendingTestData} from "../../../mocks/testData";
 
 jest.mock(
     './PostItem/PostItem',
