@@ -12,7 +12,6 @@ type InitialStateType = {
 const initialState: InitialStateType = {
     trendingFeed: null,
     errors: null
-
 };
 
 const trendingReducer = (state = initialState, action: ActionTypeTrendingReducer): InitialStateType  => {

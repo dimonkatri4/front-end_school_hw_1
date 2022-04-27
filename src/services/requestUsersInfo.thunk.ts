@@ -1,16 +1,8 @@
-import { ThunkAction } from 'redux-thunk';
 import getUserInfo from '../api/getUserInfo';
-import {
-    ActionTypeUsersReducer,
-    setRequestError,
-    setUsersInfo,
-    toggleIsFetching,
-} from '../store/users-reducer';
-import { AppStateType } from '../store/store';
+import {AppDispatch} from "../rtk-store/rtk-store";
+import {setRequestError, setUsersInfo, toggleIsFetching } from '../rtk-store/usersSlice';
 
-const requestUsersInfo =
-    (id?: string): ThunkAction<Promise<void>, AppStateType, unknown, ActionTypeUsersReducer> =>
-    async (dispatch) => {
+const requestUsersInfo = (id?: string) => async (dispatch: AppDispatch) => {
         try {
             dispatch(toggleIsFetching(true));
             const data = await getUserInfo(id);

@@ -30,7 +30,8 @@ module.exports = {
         'default-param-last': ['off'],
         'no-unused-expressions': ['error', { allowTernary: true }],
         'no-shadow': ['error', { allow: ['requestTrendingFeed', 'requestUsersInfo'] }],
-        "import/extensions": [0],
-        "no-use-before-define": ['off']
+        'import/extensions': [0],
+        'no-use-before-define': ['off'],
+        'no-param-reassign': 0,
     },
 };
