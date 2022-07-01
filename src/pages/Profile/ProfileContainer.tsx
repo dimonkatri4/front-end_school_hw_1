@@ -7,8 +7,8 @@ import requestUsersInfo from '../../services/requestUsersInfo.thunk';
 import {
     getTrendingErrorsSelector,
     getTrendingFeedSelector,
-} from "../../rtk-store/selectors/trending-selectors";
-import {getUsersSelector} from "../../rtk-store/selectors/users-selectors";
+} from "../../store/selectors/trending-selectors";
+import {getUsersSelector} from "../../store/selectors/users-selectors";
 
 const ProfileContainer = function () {
 

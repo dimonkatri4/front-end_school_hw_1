@@ -1,6 +1,6 @@
 import getUserInfo from '../api/getUserInfo';
-import {AppDispatch} from "../rtk-store/rtk-store";
-import {setRequestError, setUsersInfo, toggleIsFetching } from '../rtk-store/usersSlice';
+import {AppDispatch} from "../store/store";
+import {setRequestError, setUsersInfo, toggleIsFetching } from '../store/usersSlice';
 
 const requestUsersInfo = (id?: string) => async (dispatch: AppDispatch) => {
         try {

@@ -1,6 +1,6 @@
 import getTrendingFeed from '../api/getTrendingFeed';
-import { setError, setTrendingFeed } from '../rtk-store/trendingSlice';
-import {AppDispatch} from "../rtk-store/rtk-store";
+import { setError, setTrendingFeed } from '../store/trendingSlice';
+import {AppDispatch} from "../store/store";
 
 const requestTrendingFeed = () => async (dispatch: AppDispatch) => {
         try {

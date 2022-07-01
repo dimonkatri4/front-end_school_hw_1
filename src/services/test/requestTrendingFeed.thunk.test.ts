@@ -1,7 +1,7 @@
 import getTrendingFeed from '../../api/getTrendingFeed';
 import requestTrendingFeed from '../requestTrendingFeed.thunk';
 import {trendingTestData} from "../../mocks/testData";
-import {setTrendingFeed, setError} from "../../rtk-store/trendingSlice";
+import {setTrendingFeed, setError} from "../../store/trendingSlice";
 
 jest.mock('../../api/getTrendingFeed');
 
