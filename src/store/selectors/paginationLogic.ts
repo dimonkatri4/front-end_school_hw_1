@@ -1,4 +1,4 @@
-import { PostType } from '../domain/PostType';
+import { PostType } from '../../domain/PostType';
 
 export const getPortionPage = (postArray: PostType[], pageSize: number) => {
     const subarray = [];

@@ -1,6 +1,6 @@
 export const trendingTestData = [
     {
-        id: 1,
+        id: '1',
         author: {
             uniqueId: 'id',
             avatarMedium: 'src avatar',

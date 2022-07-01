@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useState} from 'react';
 import Pagination from '@mui/material/Pagination';
 import style from '../profile.module.css';
-import { getPageCount, getPortionPage } from '../../../services/paginationPage';
+import { getPageCount, getPortionPage } from '../../../store/selectors/paginationLogic';
 import UserPostItem from './UserPostItem';
 import {PostType} from "../../../domain/PostType";
 

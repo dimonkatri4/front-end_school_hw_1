@@ -21,7 +21,7 @@ export type VideoType = {
 }
 
 export type PostType = {
-    id: number
+    id: string
     author: Author
     desc: string
     music: Music
