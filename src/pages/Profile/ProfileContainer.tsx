@@ -4,14 +4,19 @@ import { useParams } from 'react-router-dom';
 import Profile from './Profile';
 import requestTrendingFeed from '../../services/requestTrendingFeed.thunk';
 import requestUsersInfo from '../../services/requestUsersInfo.thunk';
-import {RootState} from "../../rtk-store/rtk-store";
+import {
+    getTrendingErrorsSelector,
+    getTrendingFeedSelector,
+} from "../../store/selectors/trending-selectors";
+import {getUsersSelector} from "../../store/selectors/users-selectors";
 
 const ProfileContainer = function () {
 
     const { userId } = useParams();
     const dispatch = useDispatch();
-    const trending = useSelector((state: RootState) => state.trending);
-    const users = useSelector((state: RootState) => state.user);
+    const trendingFeed = useSelector(getTrendingFeedSelector);
+    const errors = useSelector(getTrendingErrorsSelector);
+    const users = useSelector(getUsersSelector);
 
     useEffect(() => {
         userId ? dispatch(requestUsersInfo(userId)) : dispatch(requestUsersInfo());
@@ -25,8 +30,8 @@ const ProfileContainer = function () {
         <Profile
             profile={users.userInfo}
             isFetching={users.isFetching}
-            trending={trending.trendingFeed}
-            errorTrend={trending.errors}
+            trending={trendingFeed}
+            errorTrend={errors}
             errorUser={users.requestError}
             pageSize={users.pageSize}
         />

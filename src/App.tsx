@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import MainPage from './pages/MainPage';
 
 const App = function () {
+    let t = 1;
     return (
         <div className="appWrapper">
             <Router>

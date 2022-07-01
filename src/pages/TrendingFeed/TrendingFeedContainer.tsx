@@ -2,12 +2,12 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import TrendingFeed from './TrendingFeed';
 import requestTrendingFeed from '../../services/requestTrendingFeed.thunk';
-import {RootState} from "../../rtk-store/rtk-store";
+import {getTrendingErrorsSelector, getTrendingFeedSelector} from "../../store/selectors/trending-selectors";
 
 const TrendingFeedContainer = function () {
 
-    const trending = useSelector((state: RootState) => state.trending.trendingFeed);
-    const error = useSelector((state: RootState) => state.trending.errors);
+    const trending = useSelector(getTrendingFeedSelector);
+    const error = useSelector(getTrendingErrorsSelector);
     const dispatch = useDispatch();
 
     useEffect(() => {
