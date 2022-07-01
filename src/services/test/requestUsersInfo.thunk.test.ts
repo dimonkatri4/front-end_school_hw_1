@@ -1,9 +1,9 @@
 import getUserInfo from '../../api/getUserInfo';
-import { setRequestError, setUsersInfo, toggleIsFetching } from '../../store/users-reducer';
+import { setRequestError, setUsersInfo, toggleIsFetching } from '../../rtk-store/usersSlice';
 import requestUsersInfo from '../requestUsersInfo.thunk';
 import {profileTestData} from "../../mocks/testData";
 
-jest.mock('../api/getUserInfo');
+jest.mock('../../api/getUserInfo');
 
 const userFeedData = profileTestData;
 

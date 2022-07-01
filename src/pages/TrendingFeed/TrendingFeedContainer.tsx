@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import TrendingFeed from './TrendingFeed';
 import requestTrendingFeed from '../../services/requestTrendingFeed.thunk';
-import {getTrendingErrorsSelector, getTrendingFeedSelector} from "../../store/selectors/trending-selectors";
+import {getTrendingErrorsSelector, getTrendingFeedSelector} from "../../rtk-store/selectors/trending-selectors";
 
 const TrendingFeedContainer = function () {
 

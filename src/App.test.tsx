@@ -4,6 +4,13 @@ import { Provider } from 'react-redux';
 import App from './App';
 import store from './store/store';
 
+jest.mock(
+    './pages/Profile/ProfileContainer',
+    () => function ProfileContainerMock() {
+        return <div/>
+    }
+)
+
 test('renders learn react link', () => {
     render(
         <Provider store={store}>

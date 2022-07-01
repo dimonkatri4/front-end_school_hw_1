@@ -1,7 +1,7 @@
 import getTrendingFeed from '../getTrendingFeed';
 import apiRequest from '../api';
 
-jest.mock('./api');
+jest.mock('../api');
 
 describe('getTrendingFeed function', () => {
     (apiRequest as jest.Mock).mockReturnValue(jest.fn());

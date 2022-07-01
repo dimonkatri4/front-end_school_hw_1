@@ -5,7 +5,7 @@ import PostItem from '../PostItem';
 import { trendingTestData } from '../../../../mocks/testData';
 
 jest.mock(
-    './Video',
+    '../Video',
     () =>
         function VideoMock() {
             return <div />;

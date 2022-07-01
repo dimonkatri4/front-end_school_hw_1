@@ -7,7 +7,7 @@ const trending = trendingTestData;
 const pageSize = 6;
 
 jest.mock(
-    './UserPostItem',
+    '../UserPostItem',
     () =>
         function UserPostItemMock() {
             return <div />;

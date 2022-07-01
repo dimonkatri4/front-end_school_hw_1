@@ -1,7 +1,7 @@
 import getUserInfo from '../getUserInfo';
 import apiRequest from '../api';
 
-jest.mock('./api');
+jest.mock('../api');
 
 describe('getUserInfo function', () => {
     (apiRequest as jest.Mock).mockReturnValue(jest.fn());

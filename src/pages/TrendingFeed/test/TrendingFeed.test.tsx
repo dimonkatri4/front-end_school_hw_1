@@ -4,7 +4,7 @@ import TrendingFeed from '../TrendingFeed';
 import {trendingTestData} from "../../../mocks/testData";
 
 jest.mock(
-    './PostItem/PostItem',
+    '../PostItem/PostItem',
     () =>
         function PostItemMock() {
             return <div />;

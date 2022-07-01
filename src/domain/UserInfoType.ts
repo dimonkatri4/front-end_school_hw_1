@@ -1,4 +1,4 @@
-export type UserInfoType = {
+export interface UserInfoType {
     avatarMedium: string
     nickname: string
     signature: string

@@ -10,9 +10,9 @@ interface InitialStateType {
 }
 
 const initialState: InitialStateType = {
-    userInfo: null as UserInfoType | null,
+    userInfo: null,
     isFetching: false,
-    requestError: null as ErrorType | null,
+    requestError: null,
     pageSize: 6,
 }
 

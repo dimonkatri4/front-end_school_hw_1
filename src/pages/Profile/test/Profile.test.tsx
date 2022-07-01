@@ -4,14 +4,14 @@ import Profile from '../Profile';
 import {profileTestData} from "../../../mocks/testData";
 
 jest.mock(
-    './ProfileHeader/ProfileHeader',
+    '../ProfileHeader/ProfileHeader',
     () =>
         function ProfileHeaderMock() {
             return <div />;
         }
 );
 jest.mock(
-    './UserPosts/UserPosts',
+    '../UserPosts/UserPosts',
     () =>
         function UserPostsMock() {
             return <div />;

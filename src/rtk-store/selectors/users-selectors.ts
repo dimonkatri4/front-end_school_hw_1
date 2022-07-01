@@ -1,3 +1,3 @@
-import {RootState} from "../../rtk-store/rtk-store";
+import {RootState} from "../rtk-store";
 
 export const getUsersSelector = (state:RootState) => state.user
