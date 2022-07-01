@@ -2,14 +2,14 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {UserInfoType} from "../domain/UserInfoType";
 import {ErrorType} from "../domain/ErrorType";
 
-interface InitialStateType {
+export interface InitialUsersStateType {
     userInfo: UserInfoType | null
     isFetching: boolean
     requestError: ErrorType | null
     pageSize: number
 }
 
-const initialState: InitialStateType = {
+const initialState: InitialUsersStateType = {
     userInfo: null,
     isFetching: false,
     requestError: null,
