@@ -26,7 +26,6 @@ describe('Profile component', () => {
     it('Profile render', () => {
         render(<Profile
             profile={profile}
-            pageSize={pageSize}
             errorTrend={null}
             trending={null}
             errorUser={null}
@@ -41,8 +40,7 @@ describe('Profile component', () => {
             errorUser={null}
             trending={null}
             errorTrend={null}
-            profile={null}
-            pageSize={pageSize} />);
+            profile={null} />);
         expect(screen.getByTestId('preloader')).toBeInTheDocument();
         expect(screen.queryByTestId('profile')).toBeNull();
     });
@@ -52,8 +50,7 @@ describe('Profile component', () => {
             trending={null}
             errorUser={null}
             isFetching={false}
-            errorTrend={errorTrend}
-            pageSize={pageSize} />);
+            errorTrend={errorTrend} />);
         expect(screen.queryByTestId('profile')).toBeNull();
         expect(screen.queryByTestId('preloader')).toBeNull();
     });

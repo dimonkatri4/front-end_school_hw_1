@@ -3,7 +3,7 @@ import { setError, setTrendingFeed } from '../store/trendingSlice';
 import {AppDispatch} from "../store/store";
 import mockData from '../mocks/user-feed.json'
 
-/*const requestTrendingFeed = () => async (dispatch: AppDispatch) => {
+/* const requestTrendingFeed = () => async (dispatch: AppDispatch) => {
         try {
             const data = await getTrendingFeed();
             if (data.length === 0 || typeof data === 'string') {
@@ -15,7 +15,7 @@ import mockData from '../mocks/user-feed.json'
         } catch (err: any) {
             dispatch(setError(err.response.data.message));
         }
-    };*/
+    }; */
 
 const requestTrendingFeed = () => (dispatch: AppDispatch) => {
     dispatch(setTrendingFeed(mockData.itemList))

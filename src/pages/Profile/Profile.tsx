@@ -14,10 +14,9 @@ type Props = {
     trending: PostType[] | null
     errorTrend: ErrorType
     errorUser: ErrorType
-    pageSize: number
 }
 
-const Profile = function ({ profile, isFetching, trending, errorTrend, errorUser, pageSize }: Props) {
+const Profile = function ({ profile, isFetching, trending, errorTrend, errorUser }: Props) {
     const errors = errorTrend || errorUser
     if (errors) {
         return <Error errors={errors} data-testid="error" />;
@@ -36,7 +35,7 @@ const Profile = function ({ profile, isFetching, trending, errorTrend, errorUser
             {!trending ? (
                 <CircularProgress />
             ) : (
-                <UserPosts trending={trending} pageSize={pageSize} />
+                <UserPosts/>
             )}
         </div>
     );

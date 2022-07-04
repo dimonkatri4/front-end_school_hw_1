@@ -33,7 +33,6 @@ const ProfileContainer = function () {
             trending={trendingFeed}
             errorTrend={errors}
             errorUser={users.requestError}
-            pageSize={users.pageSize}
         />
     );
 };
