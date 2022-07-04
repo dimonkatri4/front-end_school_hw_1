@@ -15,7 +15,7 @@ import mockData from '../mocks/user-feed.json'
             }
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
-            dispatch(setRequestError(error.response.data.message));
+            dispatch(setRequestError("Something went wrong, please try again"));
         }
     } ; */
 
