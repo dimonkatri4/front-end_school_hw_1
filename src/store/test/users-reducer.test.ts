@@ -33,7 +33,7 @@ describe('User reducer', () => {
     });
 
     it('the error should be set in state', () => {
-        const error = new Error('Some error');
+        const error = 'Some error';
         const action = setRequestError(error);
         const newState = usersReducer(state, action);
         expect(newState.requestError).toBe(error);

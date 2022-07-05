@@ -25,7 +25,7 @@ describe('Test trendingReducer', () => {
     });
 
     it('the error should be set in state', () => {
-        const errors = new Error('Some error');
+        const errors = 'Some error';
         const action = setError(errors);
         const newState = trendingReducer(state, action);
         expect(newState.errors).toBe(errors);

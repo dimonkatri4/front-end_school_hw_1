@@ -28,7 +28,7 @@ describe('Thunk requestUsersInfo', () => {
         expect(dispatchMock).toHaveBeenNthCalledWith(2, toggleIsFetching(false));
         expect(dispatchMock).toHaveBeenNthCalledWith(
             3,
-            setRequestError('Empty object in userInfo')
+            setRequestError('Something went wrong! Please try again')
         );
     });
     it('fails requestUsersInfo thunk', async () => {
@@ -45,6 +45,6 @@ describe('Thunk requestUsersInfo', () => {
         await requestUsersInfo(1)(dispatchMock);
         expect(dispatchMock).toBeCalledTimes(2);
         expect(dispatchMock).toHaveBeenNthCalledWith(1, toggleIsFetching(true));
-        expect(dispatchMock).toHaveBeenNthCalledWith(2, setRequestError('FAIL!'));
+        expect(dispatchMock).toHaveBeenNthCalledWith(2, setRequestError('Something went wrong! Please try again'));
     });
 });

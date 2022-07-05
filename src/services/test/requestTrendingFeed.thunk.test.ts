@@ -37,6 +37,6 @@ describe('Thunk requestTrendingFeed', () => {
         // @ts-ignore
         await requestTrendingFeed()(dispatchMock);
         expect(dispatchMock).toBeCalledTimes(1);
-        expect(dispatchMock).toHaveBeenNthCalledWith(1, setError('FAIL!'));
+        expect(dispatchMock).toHaveBeenNthCalledWith(1, setError('Something went wrong! Please try again'));
     });
 });

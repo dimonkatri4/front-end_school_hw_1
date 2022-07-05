@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Profile from './Profile';
-import requestTrendingFeed from '../../services/requestTrendingFeed.thunk';
-import requestUsersInfo from '../../services/requestUsersInfo.thunk';
+import {mockRequestTrendingFeed} from '../../services/requestTrendingFeed.thunk';
+import {mockRequestUsersInfo} from '../../services/requestUsersInfo.thunk';
 import {
     getTrendingErrorsSelector,
     getTrendingFeedSelector,
@@ -19,11 +19,11 @@ const ProfileContainer = function () {
     const users = useSelector(getUsersSelector);
 
     useEffect(() => {
-        userId ? dispatch(requestUsersInfo(userId)) : dispatch(requestUsersInfo());
+        userId ? dispatch(mockRequestUsersInfo(userId)) : dispatch(mockRequestUsersInfo());
     }, [userId]);
 
     useEffect(() => {
-       dispatch(requestTrendingFeed());
+       dispatch(mockRequestTrendingFeed());
     }, []);
 
     return (
