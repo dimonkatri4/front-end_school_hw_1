@@ -33,6 +33,7 @@ module.exports = {
         'import/extensions': [0],
         'no-use-before-define': ['off'],
         'no-param-reassign': 0,
-        'consistent-return': 0
+        'consistent-return': 0,
+        'import/prefer-default-export': 0
     },
 };

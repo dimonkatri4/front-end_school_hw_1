@@ -9,11 +9,12 @@ import {
     getTrendingFeedSelector,
 } from "../../store/selectors/trending-selectors";
 import {getUsersSelector} from "../../store/selectors/users-selectors";
+import {useAppDispatch} from "../../hooks/redux";
 
 const ProfileContainer = function () {
 
     const { userId } = useParams();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const trendingFeed = useSelector(getTrendingFeedSelector);
     const errors = useSelector(getTrendingErrorsSelector);
     const users = useSelector(getUsersSelector);
